@@ -127,42 +127,48 @@
   <!-- journey:start -->
   <section class="section jr" id="journey" data-dock="Stages" aria-labelledby="jr-title">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow reveal">Idea &rarr; Seed &rarr; PMF &rarr; Scale</span>
-        <h2 class="h2 reveal" style="--i:1" id="jr-title">We work with founders at every stage, and stay through each one.</h2>
-        <p class="body reveal" style="--i:2">Most of our clients start with us at one stage and grow into the next with the same team, so nothing is lost between a first version and a team you own.</p>
+      <div class="section-head section-head--split">
+        <div>
+          <span class="eyebrow reveal">Idea &rarr; Seed &rarr; PMF &rarr; Scale</span>
+          <h2 class="h2 reveal" style="--i:1" id="jr-title">We work with founders at every stage, and stay through each one.</h2>
+        </div>
+        <p class="body reveal" style="--i:2">Most clients start with us at one stage and grow into the next with the same team, so nothing is lost between a first version and a team you own.</p>
       </div>
-      <ol class="jr-track reveal" style="--i:2">
-        <li class="jr-stage">
-          <span class="jr-dot" aria-hidden="true"></span>
-          <span class="mono">01</span>
-          <h3>Idea</h3>
-          <p>A problem and a concept, still being validated.</p>
-        </li>
-        <li class="jr-stage">
-          <span class="jr-dot" aria-hidden="true"></span>
-          <span class="mono">02</span>
-          <h3>Seed</h3>
-          <p>An early product, with real users giving feedback.</p>
-        </li>
-        <li class="jr-stage">
-          <span class="jr-dot" aria-hidden="true"></span>
-          <span class="mono">03</span>
-          <h3>PMF</h3>
-          <p>Traction, and more priorities than people.</p>
-        </li>
-        <li class="jr-stage">
-          <span class="jr-dot" aria-hidden="true"></span>
-          <span class="mono">04</span>
-          <h3>Scale</h3>
-          <p>You need sustained capacity and a team of your own.</p>
-        </li>
-      </ol>
-      <ul class="jr-hops reveal" style="--i:3" aria-label="Clients who moved to the next stage with us">
-        <li class="jr-hop" data-impact="idea-seed"><span class="jr-num"><b class="v">&mdash;</b> clients</span><span class="jr-lbl">taken from Idea to Seed</span><span class="jr-ex">Stitch: MVP, then the pivot</span></li>
-        <li class="jr-hop" data-impact="seed-pmf"><span class="jr-num"><b class="v">&mdash;</b> clients</span><span class="jr-lbl">taken from Seed to PMF</span></li>
-        <li class="jr-hop" data-impact="pmf-scale"><span class="jr-num"><b class="v">&mdash;</b> clients</span><span class="jr-lbl">taken from PMF to Scale</span></li>
-      </ul>
+      <div class="jr-panel reveal" style="--i:2">
+        <div class="jr-chart" aria-hidden="true">
+          <svg class="jr-lines" viewBox="0 0 1200 260" preserveAspectRatio="none" fill="none"><path class="jr-base" d="M40 238H1160"/><path class="jr-line" pathLength="1" d="M150 214 C300 214 300 168 450 168 C600 168 600 112 750 112 C900 112 900 46 1050 46"/></svg>
+          <svg class="jr-pts" viewBox="0 0 1200 260" preserveAspectRatio="none" fill="none"><g class="jr-pt" data-k="idea"><circle class="jr-halo" cx="150" cy="214" r="22"/><circle class="jr-node" cx="150" cy="214" r="9"/></g><g class="jr-pt" data-k="seed"><circle class="jr-halo" cx="450" cy="168" r="22"/><circle class="jr-node" cx="450" cy="168" r="9"/></g><g class="jr-pt" data-k="pmf"><circle class="jr-halo" cx="750" cy="112" r="22"/><circle class="jr-node" cx="750" cy="112" r="9"/></g><g class="jr-pt" data-k="scale"><circle class="jr-halo" cx="1050" cy="46" r="22"/><circle class="jr-node" cx="1050" cy="46" r="9"/></g></svg>
+          <p class="jr-hop" data-impact="idea-seed" style="left:25.00%;top:49.62%"><span class="jr-n"><b class="v">&mdash;</b> clients went from Idea to Seed with us</span><span class="jr-fb">Stitch went from MVP to pivot with us</span></p>
+          <p class="jr-hop" data-impact="seed-pmf" style="left:50.00%;top:30.00%"><span class="jr-n"><b class="v">&mdash;</b> clients went from Seed to PMF with us</span><span class="jr-fb">The same team, so no context is lost</span></p>
+          <p class="jr-hop" data-impact="pmf-scale" style="left:75.00%;top:6.54%"><span class="jr-n"><b class="v">&mdash;</b> clients went from PMF to Scale with us</span><span class="jr-fb">Then a team built around yours</span></p>
+        </div>
+        <div class="jr-cols">
+        <a class="jr-col" data-k="idea" href="how-we-work.html#idea">
+          <span class="mono">01 &middot; Idea</span>
+          <p class="jr-sit">A problem and a concept, still being validated.</p>
+          <p class="jr-we"><span class="mono">What we do</span>We validate the workflow and ship a focused MVP.</p>
+          <span class="jr-more">How we work at Idea <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="jr-col" data-k="seed" href="how-we-work.html#seed">
+          <span class="mono">02 &middot; Seed</span>
+          <p class="jr-sit">An early product, with real users giving feedback.</p>
+          <p class="jr-we"><span class="mono">What we do</span>A product pod sharpens the workflows and adds the key integrations.</p>
+          <span class="jr-more">How we work at Seed <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="jr-col" data-k="pmf" href="how-we-work.html#pmf">
+          <span class="mono">03 &middot; PMF</span>
+          <p class="jr-sit">Traction, and more priorities than people.</p>
+          <p class="jr-we"><span class="mono">What we do</span>Specialists own whole workstreams, so your team can focus.</p>
+          <span class="jr-more">How we work at PMF <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a class="jr-col" data-k="scale" href="how-we-work.html#scale">
+          <span class="mono">04 &middot; Scale</span>
+          <p class="jr-sit">You need sustained capacity and a team of your own.</p>
+          <p class="jr-we"><span class="mono">What we do</span>A dedicated team and, when it makes sense, one you own.</p>
+          <span class="jr-more">How we work at Scale <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        </div>
+      </div>
     </div>
   </section>
   <!-- journey:end -->

@@ -155,32 +155,52 @@ def logos():
   </section>'''
 
 
+SHORT = {'idea': 'We validate the workflow and ship a focused MVP.',
+         'seed': 'A product pod sharpens the workflows and adds the key integrations.',
+         'pmf': 'Specialists own whole workstreams, so your team can focus.',
+         'scale': 'A dedicated team and, when it makes sense, one you own.'}
+FALLBACK = {'idea-seed': 'Stitch went from MVP to pivot with us',
+            'seed-pmf': 'The same team, so no context is lost',
+            'pmf-scale': 'Then a team built around yours'}
+PTS = [(150, 214), (450, 168), (750, 112), (1050, 46)]   # the line rises from Idea to Scale
+
+
 def journey():
+    d = 'M{} {} '.format(*PTS[0]) + ' '.join('C{} {} {} {} {} {}'.format(x0 + 150, y0, x1 - 150, y1, x1, y1) for (x0, y0), (x1, y1) in zip(PTS, PTS[1:]))
+    pts = ''.join('<g class="jr-pt" data-k="%s"><circle class="jr-halo" cx="%d" cy="%d" r="22"/><circle class="jr-node" cx="%d" cy="%d" r="9"/></g>' % (s[0], x, y, x, y) for s, (x, y) in zip(STAGES, PTS))
+    hops = []
+    for i, (k, a, b, ex) in enumerate(JOURNEY):
+        (x0, y0), (x1, y1) = PTS[i], PTS[i + 1]
+        left = (x0 + x1) / 2 / 1200 * 100
+        top = ((y0 + y1) / 2 - 62) / 260 * 100
+        hops.append('          <p class="jr-hop" data-impact="%s" style="left:%.2f%%;top:%.2f%%"><span class="jr-n"><b class="v">&mdash;</b> clients went from %s to %s with us</span><span class="jr-fb">%s</span></p>' % (k, left, top, a, b, E(FALLBACK[k])))
     cols = []
     for i, (k, name, sit, offer) in enumerate(STAGES):
-        cols.append(f'''        <li class="jr-stage">
-          <span class="jr-dot" aria-hidden="true"></span>
-          <span class="mono">0{i + 1}</span>
-          <h3>{name}</h3>
-          <p>{E(sit)}</p>
-        </li>''')
-    hops = []
-    for k, a, b, ex in JOURNEY:
-        exs = f'<span class="jr-ex">{E(ex)}</span>' if ex else ''
-        hops.append(f'''        <li class="jr-hop" data-impact="{k}"><span class="jr-num"><b class="v">&mdash;</b> clients</span><span class="jr-lbl">taken from {a} to {b}</span>{exs}</li>''')
-    return f'''  <section class="section jr" id="journey" data-dock="Stages" aria-labelledby="jr-title">
+        cols.append('''        <a class="jr-col" data-k="%s" href="how-we-work.html#%s">
+          <span class="mono">0%d &middot; %s</span>
+          <p class="jr-sit">%s</p>
+          <p class="jr-we"><span class="mono">What we do</span>%s</p>
+          <span class="jr-more">How we work at %s %s</span>
+        </a>''' % (k, k, i + 1, name, E(sit), E(SHORT[k]), name, ARROW))
+    return '''  <section class="section jr" id="journey" data-dock="Stages" aria-labelledby="jr-title">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow reveal">Idea &rarr; Seed &rarr; PMF &rarr; Scale</span>
-        <h2 class="h2 reveal" style="--i:1" id="jr-title">We work with founders at every stage, and stay through each one.</h2>
-        <p class="body reveal" style="--i:2">Most of our clients start with us at one stage and grow into the next with the same team, so nothing is lost between a first version and a team you own.</p>
+      <div class="section-head section-head--split">
+        <div>
+          <span class="eyebrow reveal">Idea &rarr; Seed &rarr; PMF &rarr; Scale</span>
+          <h2 class="h2 reveal" style="--i:1" id="jr-title">We work with founders at every stage, and stay through each one.</h2>
+        </div>
+        <p class="body reveal" style="--i:2">Most clients start with us at one stage and grow into the next with the same team, so nothing is lost between a first version and a team you own.</p>
       </div>
-      <ol class="jr-track reveal" style="--i:2">
-{chr(10).join(cols)}
-      </ol>
-      <ul class="jr-hops reveal" style="--i:3" aria-label="Clients who moved to the next stage with us">
-{chr(10).join(hops)}
-      </ul>
+      <div class="jr-panel reveal" style="--i:2">
+        <div class="jr-chart" aria-hidden="true">
+          <svg class="jr-lines" viewBox="0 0 1200 260" preserveAspectRatio="none" fill="none"><path class="jr-base" d="M40 238H1160"/><path class="jr-line" pathLength="1" d="''' + d + '''"/></svg>
+          <svg class="jr-pts" viewBox="0 0 1200 260" preserveAspectRatio="none" fill="none">''' + pts + '''</svg>
+''' + '\n'.join(hops) + '''
+        </div>
+        <div class="jr-cols">
+''' + '\n'.join(cols) + '''
+        </div>
+      </div>
     </div>
   </section>'''
 
