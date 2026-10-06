@@ -92,8 +92,8 @@ window.TH_AZ = [
    "ai",
    "app"
   ],
-  "p": "Resonately",
-  "h": "work/resonately.html"
+  "p": "Name withheld",
+  "h": "work/clinical-notes.html"
  },
  {
   "t": "Clinician review",
@@ -101,8 +101,8 @@ window.TH_AZ = [
   "l": [
    "app"
   ],
-  "p": "Resonately",
-  "h": "work/resonately.html"
+  "p": "Name withheld",
+  "h": "work/clinical-notes.html"
  },
  {
   "t": "Device data",
@@ -146,8 +146,8 @@ window.TH_AZ = [
   "l": [
    "app"
   ],
-  "p": "Laptis",
-  "h": "work/laptis.html"
+  "p": "Name withheld",
+  "h": "work/behavioural-health-intake.html"
  },
  {
   "t": "Hallucination detection",
@@ -182,8 +182,8 @@ window.TH_AZ = [
   "l": [
    "app"
   ],
-  "p": "Laptis",
-  "h": "work/laptis.html"
+  "p": "Name withheld",
+  "h": "work/behavioural-health-intake.html"
  },
  {
   "t": "Interpreter dashboards",
@@ -286,8 +286,8 @@ window.TH_AZ = [
   "l": [
    "app"
   ],
-  "p": "Laptis",
-  "h": "work/laptis.html"
+  "p": "Name withheld",
+  "h": "work/behavioural-health-intake.html"
  },
  {
   "t": "RAG and knowledge systems",
@@ -304,8 +304,8 @@ window.TH_AZ = [
   "l": [
    "app"
   ],
-  "p": "Resonately",
-  "h": "work/resonately.html"
+  "p": "Name withheld",
+  "h": "work/clinical-notes.html"
  },
  {
   "t": "Redetermination workflows",
@@ -323,8 +323,8 @@ window.TH_AZ = [
   "l": [
    "app"
   ],
-  "p": "Laptis",
-  "h": "work/laptis.html"
+  "p": "Name withheld",
+  "h": "work/behavioural-health-intake.html"
  },
  {
   "t": "SDoH data",
@@ -350,8 +350,8 @@ window.TH_AZ = [
   "l": [
    "data"
   ],
-  "p": "Resonately",
-  "h": "work/resonately.html"
+  "p": "Name withheld",
+  "h": "work/clinical-notes.html"
  },
  {
   "t": "Telephony",

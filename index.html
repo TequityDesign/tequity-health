@@ -16,12 +16,10 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;1,400&display=swap">
   <link rel="stylesheet" href="assets/css/site.css">
   <script>document.documentElement.classList.add('js');try{var h=location.hash,m=localStorage.getItem('th-motion')==='1'||/[?&]motion=1/.test(location.search)||h==='#motion';if((!sessionStorage.getItem('th-loaded')||/[?&]loader=1/.test(location.search)||h==='#loader')&&(m||!matchMedia('(prefers-reduced-motion: reduce)').matches))document.documentElement.classList.add('is-loading')}catch(e){}</script>
-  <script src="assets/js/us-grid.js" defer></script>
-  <script src="assets/js/az-data.js" defer></script>
   <script src="assets/js/impact.js" defer></script>
   <script src="assets/js/site.js" defer></script>
 </head>
-<body class="has-hx">
+<body>
 <!-- header:start -->
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
@@ -41,131 +39,335 @@
 
 <main id="main">
 
-  <!-- ============ HERO: the photo loads first, the data resolves over it, the work rises below ============ -->
-  <section class="hx" id="impact" data-hx data-dock="Impact" aria-labelledby="hx-title">
-    <div class="hx-bg" aria-hidden="true" data-verify="Hero photo is team.jpg from tequity.tech / Design Labs. Replace with a photo of the Tequity team if this one is stock.">
-      <img class="hx-photo" src="assets/img/team.jpg" alt="" width="1700" height="674" fetchpriority="high" decoding="async">
-      <canvas class="hx-field"></canvas>
-      <div class="hx-shade"></div>
-      <div class="wrap hx-cols"><i></i><i></i><i></i><i></i></div>
-    </div>
-
-    <div class="wrap hx-top">
-      <p class="hx-kicker"><span class="dot live"></span>Tequity Health, updated monthly</p>
-      <dl class="hx-metrics">
-        <div class="hx-m" data-impact="clients"><dt>Clients we have worked with so far</dt><dd>&mdash;</dd></div>
-        <div class="hx-m" data-impact="patients"><dt>Patients helped last month</dt><dd>&mdash;</dd></div>
-        <div class="hx-m" data-impact="clinics"><dt>Clinics onboarded last month</dt><dd>&mdash;</dd></div>
-        <div class="hx-m hx-asof"><dt>Last updated</dt><dd class="hx-asof-v" data-impact-asof>Figures pending</dd></div>
-      </dl>
-    </div>
-
-    <div class="wrap hx-copy">
-      <span class="eyebrow hx-in">Tequity Health &middot; End-to-end product support</span>
-      <h1 class="hx-title hx-in" id="hx-title">Build healthcare products that work in the <span class="accent" style="white-space:nowrap">real world.</span></h1>
-      <div class="hx-sub hx-in">
+  <!-- ============ HERO OPTION 2: the stage, not the numbers ============ -->
+  <section class="hb" id="intro" data-hb data-dock="Intro" aria-labelledby="hb-title">
+    <div class="wrap hb-grid">
+      <div class="hb-tile hb-head">
+        <span class="eyebrow">Tequity Health &middot; End-to-end product support</span>
+        <h1 class="hb-title" id="hb-title">Build healthcare products that work <span class="rot-line"><span class="rot" data-rot><span>for patients.</span><span>for care teams.</span><span>for clinicians.</span><span>in the real world.</span></span></span></h1>
         <p class="lede">From patient and provider applications to healthcare integrations and production AI, Tequity helps digital-health founders move from an idea to a scalable product.</p>
-        <div class="btn-row">
-          <a class="btn btn--light" href="contact.html">Book a discovery call <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a class="btn btn--ghost-dark" href="our-work.html">See our healthcare work</a>
+      </div>
+      <a class="hb-tile hb-cta" href="contact.html">
+        <span class="mono">30 minutes on video</span>
+        <b>Book a discovery call <svg viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M5 17h24m0 0L19 7m10 10L19 27" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+      </a>
+      <div class="hb-tile hb-stage">
+        <div class="hb-ask">
+          <span class="mono" id="hb-stage-label">Where are you today?</span>
+          <div class="hb-seg" role="tablist" aria-labelledby="hb-stage-label">
+            <button type="button" role="tab" id="hb-tab-idea" data-stage="idea" aria-controls="hb-offers" aria-selected="true">Idea</button>
+            <button type="button" role="tab" id="hb-tab-seed" data-stage="seed" aria-controls="hb-offers" aria-selected="false" tabindex="-1">Seed</button>
+            <button type="button" role="tab" id="hb-tab-pmf" data-stage="pmf" aria-controls="hb-offers" aria-selected="false" tabindex="-1">PMF</button>
+            <button type="button" role="tab" id="hb-tab-scale" data-stage="scale" aria-controls="hb-offers" aria-selected="false" tabindex="-1">Scale</button>
+          </div>
+        </div>
+        <div class="hb-offers" id="hb-offers" role="tabpanel" aria-labelledby="hb-tab-idea">
+          <a class="hb-offer is-on" data-stage="idea" href="how-we-work.html#idea"><span class="sr-only">How we work at the Idea stage: </span><b>Prove the workflow and ship a focused MVP.</b><span class="hb-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          <a class="hb-offer" aria-hidden="true" tabindex="-1" data-stage="seed" href="how-we-work.html#seed"><span class="sr-only">How we work at the Seed stage: </span><b>A flexible pod that adds integrations.</b><span class="hb-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          <a class="hb-offer" aria-hidden="true" tabindex="-1" data-stage="pmf" href="how-we-work.html#pmf"><span class="sr-only">How we work at the PMF stage: </span><b>Specialists who own whole workstreams.</b><span class="hb-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          <a class="hb-offer" aria-hidden="true" tabindex="-1" data-stage="scale" href="how-we-work.html#scale"><span class="sr-only">How we work at the Scale stage: </span><b>A dedicated team, yours when it makes sense.</b><span class="hb-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
         </div>
       </div>
-    </div>
-
-    <div class="hxc" data-carousel role="region" aria-roledescription="carousel" aria-label="Healthcare case studies">
-      <div class="hxc-track">
-        <article class="hxc-card" data-case="stitch" role="group" aria-roledescription="slide" aria-label="1 of 6: Stitch" data-verify="Case image from the Design Labs assets. Confirm usage rights; the brief asks to avoid AI-generated faces.">
-          <a class="hxc-link" href="work/stitch.html">
-            <div class="hxc-media"><img src="assets/img/case-stitch.webp" alt="Stitch product: a patient profile, an AI care assistant asking about pain levels, and a recovery plan" width="2000" height="1334" decoding="async"></div>
-            <div class="hxc-cap"><span class="hxc-client">Stitch &middot; Post-transplant care</span><b>Care coordination from MVP through a strategic pivot</b><span class="hxc-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-          </a>
-        </article>
-        <article class="hxc-card" data-case="lexi" role="group" aria-roledescription="slide" aria-label="2 of 6: Lexi" data-verify="Lexi: confirm Lexi is the medical-interpretation client and that we may name them.">
-          <a class="hxc-link" href="work/lexi.html">
-            <div class="hxc-media work-visual tone-sand"><div class="mock" role="img" aria-label="Illustration: a live interpreted call between a clinician speaking English and a patient speaking Spanish">
-              <div class="mock-bar"><b><span class="dot live"></span> Live call &middot; Clinic line</b><span class="mono">03:41</span></div>
-              <div class="mock-body m-call"><div class="m-wave" aria-hidden="true"><i style="--i:0;--h:0.5"></i><i style="--i:1;--h:0.9"></i><i style="--i:2;--h:0.6"></i><i style="--i:3;--h:1"></i><i style="--i:4;--h:0.7"></i><i style="--i:5;--h:0.4"></i><i style="--i:6;--h:0.85"></i><i style="--i:7;--h:0.55"></i><i style="--i:8;--h:0.95"></i><i style="--i:9;--h:0.6"></i><i style="--i:10;--h:0.35"></i><i style="--i:11;--h:0.8"></i><i style="--i:12;--h:0.5"></i><i style="--i:13;--h:0.9"></i><i style="--i:14;--h:0.45"></i><i style="--i:15;--h:0.7"></i><i style="--i:16;--h:0.3"></i><i style="--i:17;--h:0.65"></i></div><div class="m-bubble src"><span class="mono">Clinician &middot; EN</span>When did the swelling start?</div><div class="m-bubble out"><span class="mono">Interpreted &middot; ES</span>&iquest;Cu&aacute;ndo empez&oacute; la hinchaz&oacute;n?</div></div>
-            </div></div>
-            <div class="hxc-cap"><span class="hxc-client">Lexi &middot; Medical interpretation</span><b>Real-time voice interpretation across clinics and phone lines</b><span class="hxc-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-          </a>
-        </article>
-        <article class="hxc-card" data-case="elevare" role="group" aria-roledescription="slide" aria-label="3 of 6: Elevare" data-verify="Case image from the Design Labs assets. Confirm usage rights; the brief asks to avoid AI-generated faces.">
-          <a class="hxc-link" href="work/elevare.html">
-            <div class="hxc-media"><img src="assets/img/case-elevare.webp" alt="Elevare product: a patient on her phone beside a symptom check-in, a pregnancy week card and an upcoming anatomy scan" width="1400" height="1050" loading="lazy" decoding="async"></div>
-            <div class="hxc-cap"><span class="hxc-client">Elevare &middot; Maternal health</span><b>A maternal-health patient app, rebuilt for the care team behind it</b><span class="hxc-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-          </a>
-        </article>
-        <article class="hxc-card" data-case="resonately" role="group" aria-roledescription="slide" aria-label="4 of 6: Resonately">
-          <a class="hxc-link" href="work/resonately.html">
-            <div class="hxc-media work-visual"><div class="mock" role="img" aria-label="Illustration: a draft visit note with a section awaiting clinician review and a button to send the approved note to Sycle">
-              <div class="mock-bar"><b>Visit note &middot; Draft</b><span class="m-rec"><i></i> Recording</span></div>
-              <div class="mock-body m-note"><div class="m-note-sec"><div class="h">History <span class="pill gray">Drafted</span></div><span class="sk w85"></span><span class="sk w55"></span></div><div class="m-note-sec review"><div class="h">Assessment <span class="pill solid">Clinician review</span></div><span class="sk w95"></span><span class="sk w70"></span></div><div class="m-deliver"><span>Send approved note</span><span class="mono">&rarr; Sycle</span></div></div>
-            </div></div>
-            <div class="hxc-cap"><span class="hxc-client">Resonately &middot; Clinical documentation</span><b>A clinical-note workflow with clinician review and Sycle delivery</b><span class="hxc-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-          </a>
-        </article>
-        <article class="hxc-card" data-case="laptis" role="group" aria-roledescription="slide" aria-label="5 of 6: Laptis" data-verify="Case image from the Design Labs assets. Confirm usage rights; the brief asks to avoid AI-generated faces.">
-          <a class="hxc-link" href="work/laptis.html">
-            <div class="hxc-media"><img src="assets/img/case-laptis.webp" alt="Laptis product: a provider search filtered by state, age, insurance and level of care, with four programs selected for referral" width="1400" height="1050" loading="lazy" decoding="async"></div>
-            <div class="hxc-cap"><span class="hxc-client">Laptis &middot; Behavioural-health intake</span><b>Referral and placement workflows for behavioural health</b><span class="hxc-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-          </a>
-        </article>
-        <article class="hxc-card" data-case="outreach" role="group" aria-roledescription="slide" aria-label="6 of 6: Patient outreach">
-          <a class="hxc-link" href="our-work.html#anonymous">
-            <div class="hxc-media work-visual"><div class="mock" role="img" aria-label="Illustration: an SMS thread where AI confirms a rescheduled appointment and routes a medication question to the care team">
-              <div class="mock-bar"><b><span class="dot live"></span> Patient outreach</b><span class="mono">Redetermination</span></div>
-              <div class="mock-body m-sms"><div class="m-bubble src"><span class="mono">Patient &middot; EN</span>Can I move my appointment to Friday?</div><div class="m-bubble ai"><span class="mono">AI reply</span>Friday at 2:15 pm is open. Reply YES to confirm.</div><div class="m-bubble src"><span class="mono">Patient &middot; ES</span>Tengo una pregunta sobre mi medicamento.</div><div class="m-trace"><span class="pill amber">Routed to care team</span> traced</div></div>
-            </div></div>
-            <div class="hxc-cap"><span class="hxc-client">Name withheld &middot; Patient outreach</span><b>Patient outreach at scale with AI SMS and voice</b><span class="hxc-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-          </a>
-        </article>
-      </div>
-      <div class="wrap hxc-ctrl">
-        <button class="icon-btn hxc-play" type="button" data-play aria-label="Pause animation"><svg class="i-pause" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg class="i-play" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5v-9z" fill="currentColor"/></svg></button>
-        <div class="hxc-count mono"><b data-idx>01</b><span>/ 06</span><span class="hxc-bar"><i></i></span></div>
-        <div class="hxc-arrows">
-          <button class="icon-btn" type="button" data-dir="-1" aria-label="Previous case study"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.5L5.5 8l4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <button class="icon-btn" type="button" data-dir="1" aria-label="Next case study"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="hb-tile hb-visual">
+        <img src="assets/img/team.jpg" alt="The Tequity team at work in the studio" width="1700" height="674" fetchpriority="high" decoding="async" data-verify="Hero photo is team.jpg from tequity.tech / Design Labs. Replace with a photo of the Tequity team if this one is stock.">
+        <span class="hb-label">What you get first &middot; illustrative</span>
+        <button class="hb-pause" type="button" data-hb-pause aria-label="Pause the rotating stages and headline"><svg class="i-pause" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg class="i-play" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5v-9z" fill="currentColor"/></svg></button>
+        <div class="hb-cards">
+          <div class="hb-card is-on" data-stage="idea">
+            <div class="hb-card-h"><b>Your first version</b></div>
+            <ol class="hb-journey"><li class="in">Referral</li><li class="in">Intake</li><li class="in">Care plan</li><li>Follow-up</li></ol>
+          </div>
+          <div class="hb-card" data-stage="seed" aria-hidden="true">
+            <div class="hb-card-h"><b>Integrations, in order</b></div>
+            <div class="hb-rows">
+              <div class="hb-row"><span>Scheduling and SMS</span><span class="pill teal">Live</span></div>
+              <div class="hb-row"><span>Eligibility checks</span><span class="pill amber">In progress</span></div>
+              <div class="hb-row"><span>EHR &middot; FHIR</span><span class="pill gray">Next</span></div>
+            </div>
+          </div>
+          <div class="hb-card" data-stage="pmf" aria-hidden="true">
+            <div class="hb-card-h"><b>Workstream: AI follow-up calls</b></div>
+            <div class="hb-rows">
+              <div class="hb-row"><span>Symptoms go to a nurse, not a reply</span><span class="mono">Done</span></div>
+              <div class="hb-row"><span>Every call logged and traceable</span><span class="mono">Done</span></div>
+              <div class="hb-row"><span>Passes the evaluation set</span><span class="mono">In review</span></div>
+            </div>
+          </div>
+          <div class="hb-card" data-stage="scale" aria-hidden="true">
+            <div class="hb-card-h"><b>Your dedicated team</b></div>
+            <div class="hb-roles"><span class="role"><i>EM</i>Engineering manager</span><span class="role"><i>EN</i>Engineers</span><span class="role"><i>QA</i>QA</span><span class="role"><i>PD</i>Designer</span></div>
+          </div>
         </div>
       </div>
-      <p class="sr-only" aria-live="polite" data-hxc-status></p>
     </div>
   </section>
 
-  <!-- ============ PROOF ============ -->
-  <section class="proof" aria-labelledby="proof-title">
+  <!-- logos:start -->
+  <section class="proof lg" aria-labelledby="proof-title">
     <div class="wrap">
       <h2 class="proof-label" id="proof-title">Healthcare teams we have built with</h2>
-      <ul class="logo-strip reveal" data-verify="Logo strip uses typographic placeholders. Swap in approved SVG logos and confirm permission for each client.">
-        <li data-verify="Elevare: confirm logo permission."><span class="wordmark wm-elevare">Elevare</span></li>
-        <li><span class="wordmark wm-lexi">lexi</span></li>
-        <li><span class="wordmark wm-stitch"><i aria-hidden="true"></i>Stitch</span></li>
-        <li><span class="wordmark wm-resonately">Resonately</span></li>
-        <li data-verify="Laptis: confirm logo permission."><span class="wordmark wm-laptis">Laptis</span></li>
-        <li data-verify="Alto Neuroscience: include only once the exact work and permission are confirmed."><span class="wordmark wm-alto">Alto<small>Neuroscience</small></span></li>
+      <ul class="lg-row lg-lead reveal">
+        <li class="lg-item is-lead"><img src="assets/img/logos/lexi.svg" alt="Lexi" height="32" loading="lazy" decoding="async"></li>
+        <li class="lg-item is-lead"><img src="assets/img/logos/stitch.svg" alt="Stitch" height="32" loading="lazy" decoding="async"></li>
+        <li class="lg-item is-lead" data-verify="BridgeHealth: send the approved SVG logo. Showing a typed placeholder."><span class="lg-word">BridgeHealth</span></li>
+        <li class="lg-item is-lead" data-verify="Elevare: send the approved SVG logo. Showing a typed placeholder."><span class="lg-word">Elevare</span></li>
       </ul>
-
+      <ul class="lg-row reveal" style="--i:1">
+        <li class="lg-item"><img src="assets/img/logos/alto-neuroscience.svg" alt="Alto Neuroscience" height="32" loading="lazy" decoding="async"></li>
+        <li class="lg-item" data-verify="Dr. Reddy&#x27;s: send the approved SVG logo. Showing a typed placeholder."><span class="lg-word">Dr. Reddy&#x27;s</span></li>
+        <li class="lg-item" data-verify="Veera Health: send the approved SVG logo. Showing a typed placeholder."><span class="lg-word">Veera Health</span></li>
+        <li class="lg-item"><img src="assets/img/logos/stacked.svg" alt="Stacked Health" height="32" loading="lazy" decoding="async"></li>
+        <li class="lg-item" data-verify="Svaim: send the approved SVG logo. Showing a typed placeholder."><span class="lg-word">Svaim</span></li>
+        <li class="lg-item" data-verify="Muse: send the approved SVG logo. Showing a typed placeholder."><span class="lg-word">Muse</span></li>
+      </ul>
     </div>
   </section>
+  <!-- logos:end -->
 
-  <!-- ============ A TO Z ============ -->
-  <section class="section section--alt" id="find" data-az data-dock="Find" aria-labelledby="az-title">
-    <div class="wrap az-grid">
-      <div class="az-intro">
-        <span class="eyebrow reveal">Find your workflow</span>
-        <h2 class="h2 reveal" style="--i:1" id="az-title">Find what you are building, by first letter.</h2>
-        <p class="body reveal" style="--i:2">Workflows, systems and use cases we design and build for, each linked to the work that shows it.</p>
-        <div class="az-letters reveal" style="--i:3" role="group" aria-label="Filter by first letter" data-az-letters></div>
+  <!-- journey:start -->
+  <section class="section jr" id="journey" data-dock="Stages" aria-labelledby="jr-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow reveal">Idea &rarr; Seed &rarr; PMF &rarr; Scale</span>
+        <h2 class="h2 reveal" style="--i:1" id="jr-title">We work with founders at every stage, and stay through each one.</h2>
+        <p class="body reveal" style="--i:2">Most of our clients start with us at one stage and grow into the next with the same team, so nothing is lost between a first version and a team you own.</p>
       </div>
-      <div class="az-panel reveal" style="--i:2">
-        <label class="az-label" for="az-q">Search workflows, systems and use cases</label>
-        <div class="az-search">
-          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.6"/><path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          <input id="az-q" type="search" placeholder="Try intake, FHIR or voice" autocomplete="off" data-az-q>
-        </div>
-        <div class="az-results" data-az-results aria-live="polite">
-          <noscript><p class="body" style="padding:22px">Browse our capabilities on <a class="link" href="what-we-build.html">What We Build</a>.</p></noscript>
-        </div>
+      <ol class="jr-track reveal" style="--i:2">
+        <li class="jr-stage">
+          <span class="jr-dot" aria-hidden="true"></span>
+          <span class="mono">01</span>
+          <h3>Idea</h3>
+          <p>A problem and a concept, still being validated.</p>
+        </li>
+        <li class="jr-stage">
+          <span class="jr-dot" aria-hidden="true"></span>
+          <span class="mono">02</span>
+          <h3>Seed</h3>
+          <p>An early product, with real users giving feedback.</p>
+        </li>
+        <li class="jr-stage">
+          <span class="jr-dot" aria-hidden="true"></span>
+          <span class="mono">03</span>
+          <h3>PMF</h3>
+          <p>Traction, and more priorities than people.</p>
+        </li>
+        <li class="jr-stage">
+          <span class="jr-dot" aria-hidden="true"></span>
+          <span class="mono">04</span>
+          <h3>Scale</h3>
+          <p>You need sustained capacity and a team of your own.</p>
+        </li>
+      </ol>
+      <ul class="jr-hops reveal" style="--i:3" aria-label="Clients who moved to the next stage with us">
+        <li class="jr-hop" data-impact="idea-seed"><span class="jr-num"><b class="v">&mdash;</b> clients</span><span class="jr-lbl">taken from Idea to Seed</span><span class="jr-ex">Stitch: MVP, then the pivot</span></li>
+        <li class="jr-hop" data-impact="seed-pmf"><span class="jr-num"><b class="v">&mdash;</b> clients</span><span class="jr-lbl">taken from Seed to PMF</span></li>
+        <li class="jr-hop" data-impact="pmf-scale"><span class="jr-num"><b class="v">&mdash;</b> clients</span><span class="jr-lbl">taken from PMF to Scale</span></li>
+      </ul>
+    </div>
+  </section>
+  <!-- journey:end -->
+
+  <!-- picker:start -->
+  <section class="section section--alt pk" id="your-stage" data-dock="Your stage" aria-labelledby="pk-title" data-picker>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow reveal">Proof of work</span>
+        <h2 class="h2 reveal" style="--i:1" id="pk-title">Which stage are you at?</h2>
+        <p class="body reveal" style="--i:2">Pick one, and see what we built for founders who were where you are now.</p>
+      </div>
+      <div class="pk-opts reveal" style="--i:2" role="group" aria-label="Your stage">
+          <button class="pk-opt" type="button" data-pick="idea" aria-pressed="false"><span class="mono">01</span><b>Idea</b><span class="pk-sit">A problem and a concept, still being validated.</span></button>
+          <button class="pk-opt" type="button" data-pick="seed" aria-pressed="false"><span class="mono">02</span><b>Seed</b><span class="pk-sit">An early product, with real users giving feedback.</span></button>
+          <button class="pk-opt" type="button" data-pick="pmf" aria-pressed="false"><span class="mono">03</span><b>PMF</b><span class="pk-sit">Traction, and more priorities than people.</span></button>
+          <button class="pk-opt" type="button" data-pick="scale" aria-pressed="false"><span class="mono">04</span><b>Scale</b><span class="pk-sit">You need sustained capacity and a team of your own.</span></button>
+      </div>
+      <div class="pk-head" aria-live="polite">
+          <div class="pk-sum" data-sum="all">
+            <span class="mono">All stages</span>
+            <p class="pk-offer">Twelve healthcare products, from a first MVP to platforms running at scale. Pick a stage to narrow them down.</p>
+          </div>
+          <div class="pk-sum" data-sum="idea" hidden>
+            <span class="mono">At the Idea stage</span>
+            <p class="pk-offer">Validate the product, define the workflow, design it and ship a focused MVP.</p>
+            <p class="pk-count"><b>3</b> of the stories below are from founders at this stage.</p>
+            <a class="link" href="how-we-work.html#idea">How we work at Idea <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <div class="pk-sum" data-sum="seed" hidden>
+            <span class="mono">At the Seed stage</span>
+            <p class="pk-offer">A flexible product pod improves the workflows, adds the essential integrations and speeds up adoption.</p>
+            <p class="pk-count"><b>5</b> of the stories below are from founders at this stage.</p>
+            <a class="link" href="how-we-work.html#seed">How we work at Seed <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <div class="pk-sum" data-sum="pmf" hidden>
+            <span class="mono">At the PMF stage</span>
+            <p class="pk-offer">Specialists own clearly defined workstreams: an integration, an AI feature, a care-team tool.</p>
+            <p class="pk-count"><b>3</b> of the stories below are from founders at this stage.</p>
+            <a class="link" href="how-we-work.html#pmf">How we work at PMF <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <div class="pk-sum" data-sum="scale" hidden>
+            <span class="mono">At the Scale stage</span>
+            <p class="pk-offer">A dedicated team on your standards and, when it makes sense, one you own.</p>
+            <p class="pk-count"><b>3</b> of the stories below are from founders at this stage.</p>
+            <a class="link" href="how-we-work.html#scale">How we work at Scale <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+      </div>
+      <div class="uc-grid" data-verify="Stage mapping: each story is placed at the stage the client was in when we started. Confirm with the account leads.">
+        <article class="uc client-stitch" data-stages="idea seed">
+          <div class="uc-vis is-photo"><img src="assets/img/uc-care-coordination.jpg" alt="Post-transplant care coordination" width="800" height="600" loading="lazy" decoding="async"></div>
+          <div class="uc-body">
+            <p class="uc-who"><span>Stitch</span><span>Post-transplant care coordination</span></p>
+            <h3>Care coordination from MVP through a strategic pivot</h3>
+            <p class="uc-line">Modular care plans, voice and SMS follow-up, and a care coordinator on every AI-flagged response.</p>
+            <ul class="uc-svc" aria-label="Services"><li>Product strategy</li><li>Design</li><li>Applications</li><li>Applied AI</li><li>QA</li></ul>
+            <p class="uc-out"><span class="mono">Idea &middot; Seed</span>MVP shipped, then the pivot to transplant care delivered without losing pace.</p>
+            <a class="link" href="work/stitch.html">Read the story <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+        <article class="uc client-lexi" data-stages="pmf">
+          <div class="uc-vis is-photo"><img src="assets/img/uc-voice.jpg" alt="Medical interpretation" width="800" height="600" loading="lazy" decoding="async"></div>
+          <div class="uc-body">
+            <p class="uc-who"><span>Lexi</span><span>Medical interpretation</span></p>
+            <h3>Real-time voice interpretation across clinics and phone lines</h3>
+            <p class="uc-line">Low-latency speech, multilingual call handling, telephony integrations and a path to a human interpreter.</p>
+            <ul class="uc-svc" aria-label="Services"><li>Applied AI</li><li>Integrations</li><li>Applications</li></ul>
+            <p class="uc-out"><span class="mono">PMF</span>In production across in-app, telephony and dashboard channels.</p>
+            <a class="link" href="work/lexi.html">Read the story <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+        <article class="uc client-elevare" data-stages="seed">
+          <div class="uc-vis"><img src="assets/img/uc-maternal.svg" alt="" width="800" height="600" loading="lazy" decoding="async"></div>
+          <div class="uc-body">
+            <p class="uc-who"><span>Elevare</span><span>Maternal health</span></p>
+            <h3>A maternal-health patient app, rebuilt for the care team behind it</h3>
+            <p class="uc-line">A React Native rebuild designed around care-team context, with security-readiness work alongside it.</p>
+            <ul class="uc-svc" aria-label="Services"><li>Design</li><li>Applications</li><li>QA and security</li></ul>
+            <p class="uc-out"><span class="mono">Seed</span>EHR integration work is under way.</p>
+            <a class="link" href="work/elevare.html">Read the story <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+        <article class="uc" data-stages="idea">
+          <div class="uc-vis is-photo"><img src="assets/img/uc-diagnostics.jpg" alt="Proactive blood testing" width="800" height="600" loading="lazy" decoding="async"></div>
+          <div class="uc-body">
+            <p class="uc-who"><span>Stacked Health</span><span>Proactive blood testing</span></p>
+            <h3>Designing a proactive blood-testing experience</h3>
+            <p class="uc-line">Consumer MVP design for at-home blood testing, with AI-guided insights.</p>
+            <ul class="uc-svc" aria-label="Services"><li>Product strategy</li><li>Design</li></ul>
+            <p class="uc-out"><span class="mono">Idea</span>Consumer MVP designed, ready to build.</p>
+            <a class="link" href="https://tequity.tech/case-studies/stacked-health-blood-testing" rel="noopener">On tequity.tech <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11L11 5M11 5H6.2M11 5v4.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+        <article class="uc" data-stages="idea">
+          <div class="uc-vis"><img src="assets/img/uc-cycle.svg" alt="" width="800" height="600" loading="lazy" decoding="async"></div>
+          <div class="uc-body">
+            <p class="uc-who"><span>Veera Health</span><span>PCOS care</span></p>
+            <h3>A personalised platform for PCOS care</h3>
+            <p class="uc-line">Personalised care plans, expert consultations and community support in one digital platform.</p>
+            <ul class="uc-svc" aria-label="Services"><li>Design</li><li>Applications</li></ul>
+            <p class="uc-out"><span class="mono">Idea</span>Platform designed and built for launch.</p>
+            <a class="link" href="https://tequity.tech/case-studies/veera-health" rel="noopener">On tequity.tech <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11L11 5M11 5H6.2M11 5v4.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+        <article class="uc" data-stages="seed">
+          <div class="uc-vis"><img src="assets/img/uc-records.svg" alt="" width="800" height="600" loading="lazy" decoding="async"></div>
+          <div class="uc-body">
+            <p class="uc-who"><span>Svaim</span><span>Patient health records</span></p>
+            <h3>A patient-first health records platform</h3>
+            <p class="uc-line">Records that belong to the patient, on mobile, from the first release onwards.</p>
+            <ul class="uc-svc" aria-label="Services"><li>Applications</li><li>Data and integrations</li></ul>
+            <p class="uc-out"><span class="mono">Seed</span>Live on the App Store and Google Play.</p>
+            <a class="link" href="https://tequity.tech/case-studies/svaim-health-records" rel="noopener">On tequity.tech <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11L11 5M11 5H6.2M11 5v4.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+        <article class="uc" data-stages="seed">
+          <div class="uc-vis"><img src="assets/img/uc-notes.svg" alt="" width="800" height="600" loading="lazy" decoding="async"></div>
+          <div class="uc-body">
+            <p class="uc-who"><span>Name withheld</span><span>Clinical documentation</span></p>
+            <h3>A clinical-note workflow with clinician review</h3>
+            <p class="uc-line">Recording in the browser, drafting, clinician review and delivery of the approved note into the practice system.</p>
+            <ul class="uc-svc" aria-label="Services"><li>Applied AI</li><li>Integrations</li><li>Applications</li></ul>
+            <p class="uc-out"><span class="mono">Seed</span>Approved notes reach the system the clinic already uses.</p>
+            <a class="link" href="work/clinical-notes.html">Read the story <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+        <article class="uc" data-stages="seed">
+          <div class="uc-vis"><img src="assets/img/uc-intake.svg" alt="" width="800" height="600" loading="lazy" decoding="async"></div>
+          <div class="uc-body">
+            <p class="uc-who"><span>Name withheld</span><span>Behavioural-health intake</span></p>
+            <h3>Referral and intake workflows for behavioural health</h3>
+            <p class="uc-line">Referrals, submitted-by tracking, forms, reminders and the operational CRM behind them.</p>
+            <ul class="uc-svc" aria-label="Services"><li>Applications</li><li>Integrations</li></ul>
+            <p class="uc-out"><span class="mono">Seed</span>One intake path for referrals from many sources.</p>
+            <a class="link" href="work/behavioural-health-intake.html">Read the story <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+        <article class="uc" data-stages="pmf">
+          <div class="uc-vis is-photo"><img src="assets/img/uc-medspa.jpg" alt="Med-spa operations" width="800" height="600" loading="lazy" decoding="async"></div>
+          <div class="uc-body">
+            <p class="uc-who"><span>Muse</span><span>Med-spa operations</span></p>
+            <h3>Streamlining med-spa operations</h3>
+            <p class="uc-line">Operations tooling for med spas, with the recording stack rebuilt for long-session reliability.</p>
+            <ul class="uc-svc" aria-label="Services"><li>Applications</li><li>Data engineering</li></ul>
+            <p class="uc-out"><span class="mono">PMF</span>Long sessions recorded reliably.</p>
+            <a class="link" href="https://tequity.tech/case-studies/muse-medspa" rel="noopener">On tequity.tech <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11L11 5M11 5H6.2M11 5v4.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+        <article class="uc" data-stages="pmf scale">
+          <div class="uc-vis"><img src="assets/img/uc-outreach.svg" alt="" width="800" height="600" loading="lazy" decoding="async"></div>
+          <div class="uc-body">
+            <p class="uc-who"><span>Name withheld</span><span>Patient outreach</span></p>
+            <h3>Patient outreach at scale, with AI SMS and voice</h3>
+            <p class="uc-line">A multi-tenant, multi-language outreach platform that routes medical replies to staff.</p>
+            <ul class="uc-svc" aria-label="Services"><li>Applied AI</li><li>Integrations</li><li>Data engineering</li></ul>
+            <p class="uc-out" data-verify="Outreach figures are published on tequity.tech. Reconfirm they are current before launch."><span class="mono">PMF &middot; Scale</span>100,000+ SMS and 10,000+ voice minutes across 90+ languages.</p>
+            <a class="link" href="our-work.html#anonymous">Read the story <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+        <article class="uc" data-stages="scale">
+          <div class="uc-vis is-photo"><img src="assets/img/uc-neuro.jpg" alt="Clinical EEG" width="800" height="600" loading="lazy" decoding="async"></div>
+          <div class="uc-body">
+            <p class="uc-who"><span>Alto Neuroscience</span><span>Clinical EEG</span></p>
+            <h3>Transforming clinical EEG workflows</h3>
+            <p class="uc-line">A clinical EEG platform redesigned so research teams spend less time on analysis.</p>
+            <ul class="uc-svc" aria-label="Services"><li>Design</li><li>Data engineering</li></ul>
+            <p class="uc-out" data-verify="Alto: 60% figure is published on tequity.tech. Confirm the owner and that it can appear here."><span class="mono">Scale</span>EEG analysis time reduced by 60%.</p>
+            <a class="link" href="https://tequity.tech/case-studies/alto-neuroscience" rel="noopener">On tequity.tech <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11L11 5M11 5H6.2M11 5v4.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+        <article class="uc" data-stages="scale">
+          <div class="uc-vis"><img src="assets/img/uc-triage.svg" alt="" width="800" height="600" loading="lazy" decoding="async"></div>
+          <div class="uc-body">
+            <p class="uc-who"><span>Name withheld</span><span>Voice triage</span></p>
+            <h3>Voice AI that routes patient calls</h3>
+            <p class="uc-line">Inbound calls identified, routed to the right department and handed to a person when needed.</p>
+            <ul class="uc-svc" aria-label="Services"><li>Applied AI</li><li>Integrations</li></ul>
+            <p class="uc-out" data-verify="Triage: get approved wording from Ratnadeep. Do not use the ER wait-time figure."><span class="mono">Scale</span>Calls reach the right team first time.</p>
+            <a class="link" href="our-work.html#anonymous">Read the story <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </article>
+      </div>
+      <div class="pk-cta">
+        <p><b data-pk-title>Seen enough to talk?</b> <span>In 30 minutes we will understand your product, what is blocked and whether there is a sensible first engagement.</span></p>
+        <a class="btn btn--primary" href="contact.html" data-pk-cta>Book a discovery call <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </section>
+  <!-- picker:end -->
+
+  <!-- ============ WHAT WE BUILD ============ -->
+  <section class="section" id="build" data-dock="Build" aria-labelledby="build-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow reveal">What we build</span>
+        <h2 class="h2 reveal" style="--i:1" id="build-title">Six capabilities, one product team.</h2>
+        <p class="body reveal" style="--i:2">Most digital-health products need all six sooner or later. We bring them as one team, so the workflow, the integrations and the AI are designed together instead of being handed between vendors.</p>
+      </div>
+      <div class="tiles">
+        <a class="tile reveal" style="--i:0" href="what-we-build.html#strategy"><span class="tile-top"><h3>Product strategy and design</h3><span class="tile-chip" aria-hidden="true"><svg class="i0" viewBox="0 0 24 24"><path d="M3 17.5C6.5 17.5 6.5 7 12 7s5.5 10.5 9 10.5"/><path d="M1.4 17.5a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path d="M10.4 7a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path d="M19.4 17.5a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path d="M9 21.5h6"/></svg><svg class="go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span><p>Workflow discovery, journeys, MVP scope and AI interaction design.</p><svg class="tile-art" viewBox="-0.5 -0.5 25 25" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><path class="gd" d="M0 0V24M4 0V24M8 0V24M12 0V24M16 0V24M20 0V24M24 0V24M0 0H24M0 4H24M0 8H24M0 12H24M0 16H24M0 20H24M0 24H24"/><path class="gd" d="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M3 3h18v18H3z"/><g class="ic0"><path pathLength="1" d="M3 17.5C6.5 17.5 6.5 7 12 7s5.5 10.5 9 10.5"/><path pathLength="1" d="M1.4 17.5a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path pathLength="1" d="M10.4 7a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path pathLength="1" d="M19.4 17.5a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path pathLength="1" d="M9 21.5h6"/></g><g class="ic1"><path pathLength="1" d="M3 17.5C6.5 17.5 6.5 7 12 7s5.5 10.5 9 10.5"/><path pathLength="1" d="M1.4 17.5a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path pathLength="1" d="M10.4 7a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path pathLength="1" d="M19.4 17.5a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path pathLength="1" d="M9 21.5h6"/></g></svg><span class="tile-for"><b>Delivered for</b> Stitch, Stacked Health, Veera Health, Elevare</span></a>
+        <a class="tile reveal" style="--i:1" href="what-we-build.html#applications"><span class="tile-top"><h3>Healthcare applications</h3><span class="tile-chip" aria-hidden="true"><svg class="i0" viewBox="0 0 24 24"><path d="M7 2.5h10a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-15a2 2 0 0 1 2-2z"/><path d="M10.5 5h3"/><path d="M8 8.5h8v5H8z"/><path d="M8 16h8"/><path d="M8 18.5h5"/></svg><svg class="go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span><p>Patient apps, provider tools, care coordination and dashboards.</p><svg class="tile-art" viewBox="-0.5 -0.5 25 25" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><path class="gd" d="M0 0V24M4 0V24M8 0V24M12 0V24M16 0V24M20 0V24M24 0V24M0 0H24M0 4H24M0 8H24M0 12H24M0 16H24M0 20H24M0 24H24"/><path class="gd" d="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M3 3h18v18H3z"/><g class="ic0"><path pathLength="1" d="M7 2.5h10a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-15a2 2 0 0 1 2-2z"/><path pathLength="1" d="M10.5 5h3"/><path pathLength="1" d="M8 8.5h8v5H8z"/><path pathLength="1" d="M8 16h8"/><path pathLength="1" d="M8 18.5h5"/></g><g class="ic1"><path pathLength="1" d="M7 2.5h10a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-15a2 2 0 0 1 2-2z"/><path pathLength="1" d="M10.5 5h3"/><path pathLength="1" d="M8 8.5h8v5H8z"/><path pathLength="1" d="M8 16h8"/><path pathLength="1" d="M8 18.5h5"/></g></svg><span class="tile-for"><b>Delivered for</b> Stitch, Elevare, Svaim, Veera Health</span></a>
+        <a class="tile reveal" style="--i:2" href="what-we-build.html#integrations"><span class="tile-top"><h3>Data and integrations</h3><span class="tile-chip" aria-hidden="true"><svg class="i0" viewBox="0 0 24 24"><path d="M2.5 9h5v6h-5z"/><path d="M16.5 9h5v6h-5z"/><path d="M9.5 2.5h5v4h-5z"/><path d="M9.5 17.5h5v4h-5z"/><path d="M7.5 12h9"/><path d="M12 6.5v11"/></svg><svg class="go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span><p>EHR, FHIR and HL7, claims, referrals and device feeds, exceptions included.</p><svg class="tile-art" viewBox="-0.5 -0.5 25 25" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><path class="gd" d="M0 0V24M4 0V24M8 0V24M12 0V24M16 0V24M20 0V24M24 0V24M0 0H24M0 4H24M0 8H24M0 12H24M0 16H24M0 20H24M0 24H24"/><path class="gd" d="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M3 3h18v18H3z"/><g class="ic0"><path pathLength="1" d="M2.5 9h5v6h-5z"/><path pathLength="1" d="M16.5 9h5v6h-5z"/><path pathLength="1" d="M9.5 2.5h5v4h-5z"/><path pathLength="1" d="M9.5 17.5h5v4h-5z"/><path pathLength="1" d="M7.5 12h9"/><path pathLength="1" d="M12 6.5v11"/></g><g class="ic1"><path pathLength="1" d="M2.5 9h5v6h-5z"/><path pathLength="1" d="M16.5 9h5v6h-5z"/><path pathLength="1" d="M9.5 2.5h5v4h-5z"/><path pathLength="1" d="M9.5 17.5h5v4h-5z"/><path pathLength="1" d="M7.5 12h9"/><path pathLength="1" d="M12 6.5v11"/></g></svg><span class="tile-for"><b>Delivered for</b> Lexi, Clinical notes (name withheld), Patient outreach (name withheld)</span></a>
+        <a class="tile reveal" style="--i:0" href="what-we-build.html#data"><span class="tile-top"><h3>Data engineering</h3><span class="tile-chip" aria-hidden="true"><svg class="i0" viewBox="0 0 24 24"><path d="M5 6c0-1.4 3.1-2.5 7-2.5s7 1.1 7 2.5-3.1 2.5-7 2.5S5 7.4 5 6z"/><path d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><path d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></svg><svg class="go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span><p>Pipelines, normalisation, audit logs and the analytics teams use.</p><svg class="tile-art" viewBox="-0.5 -0.5 25 25" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><path class="gd" d="M0 0V24M4 0V24M8 0V24M12 0V24M16 0V24M20 0V24M24 0V24M0 0H24M0 4H24M0 8H24M0 12H24M0 16H24M0 20H24M0 24H24"/><path class="gd" d="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M3 3h18v18H3z"/><g class="ic0"><path pathLength="1" d="M5 6c0-1.4 3.1-2.5 7-2.5s7 1.1 7 2.5-3.1 2.5-7 2.5S5 7.4 5 6z"/><path pathLength="1" d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><path pathLength="1" d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></g><g class="ic1"><path pathLength="1" d="M5 6c0-1.4 3.1-2.5 7-2.5s7 1.1 7 2.5-3.1 2.5-7 2.5S5 7.4 5 6z"/><path pathLength="1" d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><path pathLength="1" d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></g></svg><span class="tile-for"><b>Delivered for</b> Alto Neuroscience, Muse, Patient outreach (name withheld)</span></a>
+        <a class="tile tile--ink reveal" style="--i:1" href="what-we-build.html#ai"><span class="tile-top"><h3>Applied healthcare AI</h3><span class="tile-chip" aria-hidden="true"><svg class="i0" viewBox="0 0 24 24"><path d="M12 2.5l1.9 4.8 4.8 1.9-4.8 1.9L12 16l-1.9-4.9-4.8-1.9 4.8-1.9z"/><path d="M3 20.5h3l1.5-2.5 2 4 2-5 2 5 2-3.5 1.5 2H21"/></svg><svg class="go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span><p>Voice, documents, agents and RAG, evaluated, traced and handed off well.</p><svg class="tile-art" viewBox="-0.5 -0.5 25 25" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><path class="gd" d="M0 0V24M4 0V24M8 0V24M12 0V24M16 0V24M20 0V24M24 0V24M0 0H24M0 4H24M0 8H24M0 12H24M0 16H24M0 20H24M0 24H24"/><path class="gd" d="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M3 3h18v18H3z"/><g class="ic0"><path pathLength="1" d="M12 2.5l1.9 4.8 4.8 1.9-4.8 1.9L12 16l-1.9-4.9-4.8-1.9 4.8-1.9z"/><path pathLength="1" d="M3 20.5h3l1.5-2.5 2 4 2-5 2 5 2-3.5 1.5 2H21"/></g><g class="ic1"><path pathLength="1" d="M12 2.5l1.9 4.8 4.8 1.9-4.8 1.9L12 16l-1.9-4.9-4.8-1.9 4.8-1.9z"/><path pathLength="1" d="M3 20.5h3l1.5-2.5 2 4 2-5 2 5 2-3.5 1.5 2H21"/></g></svg><span class="tile-for"><b>Delivered for</b> Lexi, Stitch, Patient outreach (name withheld), Voice triage (name withheld)</span></a>
+        <a class="tile reveal" style="--i:2" href="what-we-build.html#quality"><span class="tile-top"><h3>QA, security and readiness</h3><span class="tile-chip" aria-hidden="true"><svg class="i0" viewBox="0 0 24 24"><path d="M12 2.5l7.5 3v6c0 4.6-3.2 8.5-7.5 10-4.3-1.5-7.5-5.4-7.5-10v-6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><svg class="go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span><p>Testing, security work and monitoring from the first sprint.</p><svg class="tile-art" viewBox="-0.5 -0.5 25 25" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><path class="gd" d="M0 0V24M4 0V24M8 0V24M12 0V24M16 0V24M20 0V24M24 0V24M0 0H24M0 4H24M0 8H24M0 12H24M0 16H24M0 20H24M0 24H24"/><path class="gd" d="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M3 3h18v18H3z"/><g class="ic0"><path pathLength="1" d="M12 2.5l7.5 3v6c0 4.6-3.2 8.5-7.5 10-4.3-1.5-7.5-5.4-7.5-10v-6z"/><path pathLength="1" d="M8.5 12l2.5 2.5 4.5-5"/></g><g class="ic1"><path pathLength="1" d="M12 2.5l7.5 3v6c0 4.6-3.2 8.5-7.5 10-4.3-1.5-7.5-5.4-7.5-10v-6z"/><path pathLength="1" d="M8.5 12l2.5 2.5 4.5-5"/></g></svg><span class="tile-for"><b>Delivered for</b> Stitch, Elevare</span></a>
       </div>
     </div>
   </section>
@@ -287,47 +489,6 @@
     </div>
   </section>
 
-  <!-- ============ WHAT WE BUILD ============ -->
-  <section class="section" id="build" data-dock="Build" aria-labelledby="build-title">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow reveal">What we build</span>
-        <h2 class="h2 reveal" style="--i:1" id="build-title">Six capabilities, one product team.</h2>
-        <p class="body reveal" style="--i:2">Most digital-health products need all six sooner or later. We bring them as one team, so the workflow, the integrations and the AI are designed together instead of being handed between vendors.</p>
-      </div>
-      <div class="tiles">
-        <a class="tile reveal" style="--i:0" href="what-we-build.html#strategy"><span class="tile-top"><h3>Product strategy and design</h3><span class="tile-chip" aria-hidden="true"><svg class="i0" viewBox="0 0 24 24"><path d="M3 17.5C6.5 17.5 6.5 7 12 7s5.5 10.5 9 10.5"/><path d="M1.4 17.5a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path d="M10.4 7a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path d="M19.4 17.5a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path d="M9 21.5h6"/></svg><svg class="go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span><p>Workflow discovery, journeys, MVP scope and AI interaction design.</p><svg class="tile-art" viewBox="-0.5 -0.5 25 25" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><path class="gd" d="M0 0V24M4 0V24M8 0V24M12 0V24M16 0V24M20 0V24M24 0V24M0 0H24M0 4H24M0 8H24M0 12H24M0 16H24M0 20H24M0 24H24"/><path class="gd" d="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M3 3h18v18H3z"/><g class="ic0"><path pathLength="1" d="M3 17.5C6.5 17.5 6.5 7 12 7s5.5 10.5 9 10.5"/><path pathLength="1" d="M1.4 17.5a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path pathLength="1" d="M10.4 7a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path pathLength="1" d="M19.4 17.5a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path pathLength="1" d="M9 21.5h6"/></g><g class="ic1"><path pathLength="1" d="M3 17.5C6.5 17.5 6.5 7 12 7s5.5 10.5 9 10.5"/><path pathLength="1" d="M1.4 17.5a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path pathLength="1" d="M10.4 7a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path pathLength="1" d="M19.4 17.5a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0"/><path pathLength="1" d="M9 21.5h6"/></g></svg></a>
-        <a class="tile reveal" style="--i:1" href="what-we-build.html#applications"><span class="tile-top"><h3>Healthcare applications</h3><span class="tile-chip" aria-hidden="true"><svg class="i0" viewBox="0 0 24 24"><path d="M7 2.5h10a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-15a2 2 0 0 1 2-2z"/><path d="M10.5 5h3"/><path d="M8 8.5h8v5H8z"/><path d="M8 16h8"/><path d="M8 18.5h5"/></svg><svg class="go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span><p>Patient apps, provider tools, care coordination and dashboards.</p><svg class="tile-art" viewBox="-0.5 -0.5 25 25" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><path class="gd" d="M0 0V24M4 0V24M8 0V24M12 0V24M16 0V24M20 0V24M24 0V24M0 0H24M0 4H24M0 8H24M0 12H24M0 16H24M0 20H24M0 24H24"/><path class="gd" d="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M3 3h18v18H3z"/><g class="ic0"><path pathLength="1" d="M7 2.5h10a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-15a2 2 0 0 1 2-2z"/><path pathLength="1" d="M10.5 5h3"/><path pathLength="1" d="M8 8.5h8v5H8z"/><path pathLength="1" d="M8 16h8"/><path pathLength="1" d="M8 18.5h5"/></g><g class="ic1"><path pathLength="1" d="M7 2.5h10a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-15a2 2 0 0 1 2-2z"/><path pathLength="1" d="M10.5 5h3"/><path pathLength="1" d="M8 8.5h8v5H8z"/><path pathLength="1" d="M8 16h8"/><path pathLength="1" d="M8 18.5h5"/></g></svg></a>
-        <a class="tile reveal" style="--i:2" href="what-we-build.html#integrations"><span class="tile-top"><h3>Data and integrations</h3><span class="tile-chip" aria-hidden="true"><svg class="i0" viewBox="0 0 24 24"><path d="M2.5 9h5v6h-5z"/><path d="M16.5 9h5v6h-5z"/><path d="M9.5 2.5h5v4h-5z"/><path d="M9.5 17.5h5v4h-5z"/><path d="M7.5 12h9"/><path d="M12 6.5v11"/></svg><svg class="go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span><p>EHR, FHIR and HL7, claims, referrals and device feeds, exceptions included.</p><svg class="tile-art" viewBox="-0.5 -0.5 25 25" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><path class="gd" d="M0 0V24M4 0V24M8 0V24M12 0V24M16 0V24M20 0V24M24 0V24M0 0H24M0 4H24M0 8H24M0 12H24M0 16H24M0 20H24M0 24H24"/><path class="gd" d="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M3 3h18v18H3z"/><g class="ic0"><path pathLength="1" d="M2.5 9h5v6h-5z"/><path pathLength="1" d="M16.5 9h5v6h-5z"/><path pathLength="1" d="M9.5 2.5h5v4h-5z"/><path pathLength="1" d="M9.5 17.5h5v4h-5z"/><path pathLength="1" d="M7.5 12h9"/><path pathLength="1" d="M12 6.5v11"/></g><g class="ic1"><path pathLength="1" d="M2.5 9h5v6h-5z"/><path pathLength="1" d="M16.5 9h5v6h-5z"/><path pathLength="1" d="M9.5 2.5h5v4h-5z"/><path pathLength="1" d="M9.5 17.5h5v4h-5z"/><path pathLength="1" d="M7.5 12h9"/><path pathLength="1" d="M12 6.5v11"/></g></svg></a>
-        <a class="tile reveal" style="--i:0" href="what-we-build.html#data"><span class="tile-top"><h3>Data engineering</h3><span class="tile-chip" aria-hidden="true"><svg class="i0" viewBox="0 0 24 24"><path d="M5 6c0-1.4 3.1-2.5 7-2.5s7 1.1 7 2.5-3.1 2.5-7 2.5S5 7.4 5 6z"/><path d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><path d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></svg><svg class="go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span><p>Pipelines, normalisation, audit logs and the analytics teams use.</p><svg class="tile-art" viewBox="-0.5 -0.5 25 25" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><path class="gd" d="M0 0V24M4 0V24M8 0V24M12 0V24M16 0V24M20 0V24M24 0V24M0 0H24M0 4H24M0 8H24M0 12H24M0 16H24M0 20H24M0 24H24"/><path class="gd" d="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M3 3h18v18H3z"/><g class="ic0"><path pathLength="1" d="M5 6c0-1.4 3.1-2.5 7-2.5s7 1.1 7 2.5-3.1 2.5-7 2.5S5 7.4 5 6z"/><path pathLength="1" d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><path pathLength="1" d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></g><g class="ic1"><path pathLength="1" d="M5 6c0-1.4 3.1-2.5 7-2.5s7 1.1 7 2.5-3.1 2.5-7 2.5S5 7.4 5 6z"/><path pathLength="1" d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6"/><path pathLength="1" d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></g></svg></a>
-        <a class="tile tile--ink reveal" style="--i:1" href="what-we-build.html#ai"><span class="tile-top"><h3>Applied healthcare AI</h3><span class="tile-chip" aria-hidden="true"><svg class="i0" viewBox="0 0 24 24"><path d="M12 2.5l1.9 4.8 4.8 1.9-4.8 1.9L12 16l-1.9-4.9-4.8-1.9 4.8-1.9z"/><path d="M3 20.5h3l1.5-2.5 2 4 2-5 2 5 2-3.5 1.5 2H21"/></svg><svg class="go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span><p>Voice, documents, agents and RAG, evaluated, traced and handed off well.</p><svg class="tile-art" viewBox="-0.5 -0.5 25 25" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><path class="gd" d="M0 0V24M4 0V24M8 0V24M12 0V24M16 0V24M20 0V24M24 0V24M0 0H24M0 4H24M0 8H24M0 12H24M0 16H24M0 20H24M0 24H24"/><path class="gd" d="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M3 3h18v18H3z"/><g class="ic0"><path pathLength="1" d="M12 2.5l1.9 4.8 4.8 1.9-4.8 1.9L12 16l-1.9-4.9-4.8-1.9 4.8-1.9z"/><path pathLength="1" d="M3 20.5h3l1.5-2.5 2 4 2-5 2 5 2-3.5 1.5 2H21"/></g><g class="ic1"><path pathLength="1" d="M12 2.5l1.9 4.8 4.8 1.9-4.8 1.9L12 16l-1.9-4.9-4.8-1.9 4.8-1.9z"/><path pathLength="1" d="M3 20.5h3l1.5-2.5 2 4 2-5 2 5 2-3.5 1.5 2H21"/></g></svg></a>
-        <a class="tile reveal" style="--i:2" href="what-we-build.html#quality"><span class="tile-top"><h3>QA, security and readiness</h3><span class="tile-chip" aria-hidden="true"><svg class="i0" viewBox="0 0 24 24"><path d="M12 2.5l7.5 3v6c0 4.6-3.2 8.5-7.5 10-4.3-1.5-7.5-5.4-7.5-10v-6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><svg class="go" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span><p>Testing, security work and monitoring from the first sprint.</p><svg class="tile-art" viewBox="-0.5 -0.5 25 25" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><path class="gd" d="M0 0V24M4 0V24M8 0V24M12 0V24M16 0V24M20 0V24M24 0V24M0 0H24M0 4H24M0 8H24M0 12H24M0 16H24M0 20H24M0 24H24"/><path class="gd" d="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M3 3h18v18H3z"/><g class="ic0"><path pathLength="1" d="M12 2.5l7.5 3v6c0 4.6-3.2 8.5-7.5 10-4.3-1.5-7.5-5.4-7.5-10v-6z"/><path pathLength="1" d="M8.5 12l2.5 2.5 4.5-5"/></g><g class="ic1"><path pathLength="1" d="M12 2.5l7.5 3v6c0 4.6-3.2 8.5-7.5 10-4.3-1.5-7.5-5.4-7.5-10v-6z"/><path pathLength="1" d="M8.5 12l2.5 2.5 4.5-5"/></g></svg></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ STAGES ============ -->
-  <section class="section section--alt" id="stages" data-dock="Stages" aria-labelledby="stages-title">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow reveal">How we work</span>
-        <h2 class="h2 reveal" style="--i:1" id="stages-title">From the first workflow to a team you own.</h2>
-        <p class="body reveal" style="--i:2">Founders need different things at Idea, Seed, PMF and Scale. The engagement changes with you, and the same team carries the context from one stage to the next.</p>
-      </div>
-      <ol class="path reveal">
-        <li><svg class="path-art" viewBox="-0.5 -0.5 25 25" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path class="gd" d="M0 0V24M4 0V24M8 0V24M12 0V24M16 0V24M20 0V24M24 0V24M0 0H24M0 4H24M0 8H24M0 12H24M0 16H24M0 20H24M0 24H24"/><path class="gd" d="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M3 3h18v18H3z"/><g class="ic0"><path pathLength="1" d="M12 3a6 6 0 0 0-3.6 10.8c.9.7 1.6 1.7 1.6 2.8V17h4v-.4c0-1.1.7-2.1 1.6-2.8A6 6 0 0 0 12 3z"/><path pathLength="1" d="M10 19.5h4"/><path pathLength="1" d="M10.8 21.5h2.4"/></g><g class="ic1"><path pathLength="1" d="M12 3a6 6 0 0 0-3.6 10.8c.9.7 1.6 1.7 1.6 2.8V17h4v-.4c0-1.1.7-2.1 1.6-2.8A6 6 0 0 0 12 3z"/><path pathLength="1" d="M10 19.5h4"/><path pathLength="1" d="M10.8 21.5h2.4"/></g></svg><span class="pn">1</span><h3>Idea</h3><p>Prove the workflow, design it and ship a focused MVP.</p><p class="when"><b>You are here if</b>A healthcare problem and a concept to validate.</p></li>
-        <li><svg class="path-art" viewBox="-0.5 -0.5 25 25" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path class="gd" d="M0 0V24M4 0V24M8 0V24M12 0V24M16 0V24M20 0V24M24 0V24M0 0H24M0 4H24M0 8H24M0 12H24M0 16H24M0 20H24M0 24H24"/><path class="gd" d="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M3 3h18v18H3z"/><g class="ic0"><path pathLength="1" d="M12 21v-9"/><path pathLength="1" d="M12 12C12 8 9.5 5.5 5 5.5c0 4 2.5 6.5 7 6.5z"/><path pathLength="1" d="M12 14.5c0-3.2 2.2-5.4 6-5.4 0 3.2-2.2 5.4-6 5.4z"/><path pathLength="1" d="M7 21h10"/></g><g class="ic1"><path pathLength="1" d="M12 21v-9"/><path pathLength="1" d="M12 12C12 8 9.5 5.5 5 5.5c0 4 2.5 6.5 7 6.5z"/><path pathLength="1" d="M12 14.5c0-3.2 2.2-5.4 6-5.4 0 3.2-2.2 5.4-6 5.4z"/><path pathLength="1" d="M7 21h10"/></g></svg><span class="pn">2</span><h3>Seed</h3><p>A flexible pod improves workflows and adds the essential integrations.</p><p class="when"><b>You are here if</b>An early product, with real users giving feedback.</p></li>
-        <li><svg class="path-art" viewBox="-0.5 -0.5 25 25" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path class="gd" d="M0 0V24M4 0V24M8 0V24M12 0V24M16 0V24M20 0V24M24 0V24M0 0H24M0 4H24M0 8H24M0 12H24M0 16H24M0 20H24M0 24H24"/><path class="gd" d="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M3 3h18v18H3z"/><g class="ic0"><path pathLength="1" d="M3.5 12a8.5 8.5 0 1 0 17.0 0a8.5 8.5 0 1 0 -17.0 0"/><path pathLength="1" d="M7 12a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path pathLength="1" d="M10.5 12a1.5 1.5 0 1 0 3.0 0a1.5 1.5 0 1 0 -3.0 0"/><path pathLength="1" d="M12 12l8.5-8.5"/><path pathLength="1" d="M17 3.5h3.5V7"/></g><g class="ic1"><path pathLength="1" d="M3.5 12a8.5 8.5 0 1 0 17.0 0a8.5 8.5 0 1 0 -17.0 0"/><path pathLength="1" d="M7 12a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"/><path pathLength="1" d="M10.5 12a1.5 1.5 0 1 0 3.0 0a1.5 1.5 0 1 0 -3.0 0"/><path pathLength="1" d="M12 12l8.5-8.5"/><path pathLength="1" d="M17 3.5h3.5V7"/></g></svg><span class="pn">3</span><h3>PMF</h3><p>Specialists who own workstreams across product, integration and AI.</p><p class="when"><b>You are here if</b>Traction, and more priorities than capacity.</p></li>
-        <li class="own"><svg class="path-art" viewBox="-0.5 -0.5 25 25" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path class="gd" d="M0 0V24M4 0V24M8 0V24M12 0V24M16 0V24M20 0V24M24 0V24M0 0H24M0 4H24M0 8H24M0 12H24M0 16H24M0 20H24M0 24H24"/><path class="gd" d="M2 12a10 10 0 1 0 20 0a10 10 0 1 0 -20 0M3 3h18v18H3z"/><g class="ic0"><path pathLength="1" d="M3.5 16.5a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path pathLength="1" d="M10.4 13.6l9.6-9.6"/><path pathLength="1" d="M16.5 7.5l2.5 2.5"/><path pathLength="1" d="M19 5l2 2"/></g><g class="ic1"><path pathLength="1" d="M3.5 16.5a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path pathLength="1" d="M10.4 13.6l9.6-9.6"/><path pathLength="1" d="M16.5 7.5l2.5 2.5"/><path pathLength="1" d="M19 5l2 2"/></g></svg><span class="pn">4</span><h3>Scale</h3><p>A dedicated team, and when it makes sense, one you own.</p><p class="when"><b>You are here if</b>You need sustained capacity and your own team.</p></li>
-      </ol>
-
-      <div class="stage-foot">
-        <p class="qualifier" data-verify="Four-week MVP: keep this qualified wording. Align the four stages with the three engagement paths on tequity.tech."><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="7.25" stroke="currentColor" stroke-width="1.4"/><path d="M9 8.2v4.3M9 5.6v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>A focused MVP can be shipped in four weeks when the scope, data access and external dependencies allow it. Products that need EHR access, clinical validation, regulated devices or several external integrations take longer, and we will say so up front.</span></p>
-        <a class="link" href="how-we-work.html">See how each stage works <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ AI APPROACH ============ -->
   <section class="section" id="ai" data-dock="AI" aria-labelledby="ai-title">
     <div class="wrap">
@@ -393,7 +554,6 @@
 
 </main>
 
-<nav class="opt-switch" aria-label="Hero options (draft)"><span class="mono">Draft hero</span><a href="index.html" aria-current="page">Option 1</a><a href="index-2.html">Option 2</a></nav>
 
 <!-- footer:start -->
 <footer class="site-footer">
@@ -422,8 +582,8 @@
           <li><a href="work/stitch.html">Stitch</a></li>
           <li><a href="work/lexi.html">Lexi</a></li>
           <li><a href="work/elevare.html">Elevare</a></li>
-          <li><a href="work/resonately.html">Resonately</a></li>
-          <li><a href="work/laptis.html">Laptis</a></li>
+          <li><a href="work/clinical-notes.html">Clinical notes (name withheld)</a></li>
+          <li><a href="work/behavioural-health-intake.html">Behavioural-health intake (name withheld)</a></li>
         </ul>
       </div>
       <div class="footer-col">

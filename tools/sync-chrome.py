@@ -62,8 +62,8 @@ FOOTER = """<footer class="site-footer">
           <li><a href="{p}work/stitch.html">Stitch</a></li>
           <li><a href="{p}work/lexi.html">Lexi</a></li>
           <li><a href="{p}work/elevare.html">Elevare</a></li>
-          <li><a href="{p}work/resonately.html">Resonately</a></li>
-          <li><a href="{p}work/laptis.html">Laptis</a></li>
+          <li><a href="{p}work/clinical-notes.html">Clinical notes (name withheld)</a></li>
+          <li><a href="{p}work/behavioural-health-intake.html">Behavioural-health intake (name withheld)</a></li>
         </ul>
       </div>
       <div class="footer-col">

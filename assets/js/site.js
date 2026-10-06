@@ -403,7 +403,7 @@
   if (doc.classList.contains('is-loading')) (function () {
     try { sessionStorage.setItem('th-loaded', '1'); } catch (e) {}
     var home = !!$('[data-hx]');
-    var srcs = ['assets/img/case-elevare.webp', 'assets/img/case-laptis.webp', 'assets/img/case-stitch.webp', 'assets/img/team.jpg'];
+    var srcs = ['assets/img/uc-diagnostics.jpg', 'assets/img/uc-voice.jpg', 'assets/img/uc-care-coordination.jpg', 'assets/img/team.jpg'];
     var el = document.createElement('div');
     el.className = 'ld'; el.setAttribute('aria-hidden', 'true');
     el.innerHTML = '<span class="ld-side ld-l">Tequity Health</span><div class="ld-stack">' +
@@ -1022,6 +1022,36 @@
     if (doc.classList.contains('is-loading')) document.addEventListener('th:handoff', start, { once: true });
     else if (!photo || photo.complete) requestAnimationFrame(start);
     else { photo.addEventListener('load', start); photo.addEventListener('error', start); setTimeout(start, 2000); }
+  })();
+
+  /* ---------- Home: "Which stage are you at?" picks the proof, then leads to the call ---------- */
+  var pk = $('[data-picker]');
+  if (pk) (function () {
+    var opts = $$('.pk-opt', pk), cards = $$('.uc', pk), sums = $$('.pk-sum', pk);
+    var cta = $('[data-pk-cta]', pk), ctaTitle = $('[data-pk-title]', pk), cur = null;
+    var NAMES = { idea: 'Idea', seed: 'Seed', pmf: 'PMF', scale: 'Scale' };
+    function pick(key) {
+      cur = cur === key ? null : key;   /* pressing the chosen stage again shows everything */
+      opts.forEach(function (o) { o.setAttribute('aria-pressed', String(o.dataset.pick === cur)); });
+      sums.forEach(function (s) { s.hidden = s.dataset.sum !== (cur || 'all'); });
+      var shown = 0;
+      cards.forEach(function (c) {
+        var on = !cur || c.dataset.stages.split(' ').indexOf(cur) > -1;
+        c.hidden = !on;
+        if (on) { shown++; if (!reduceMotion) { c.classList.remove('is-entering'); void c.offsetWidth; c.classList.add('is-entering'); } }
+      });
+      if (cta) cta.setAttribute('href', 'contact.html' + (cur ? '?stage=' + cur : ''));
+      if (ctaTitle) ctaTitle.textContent = cur ? 'Building at the ' + NAMES[cur] + ' stage?' : 'Seen enough to talk?';
+    }
+    opts.forEach(function (o) { o.addEventListener('click', function () { pick(o.dataset.pick); }); });
+  })();
+
+  /* ---------- Contact: a stage chosen on the home page arrives pre-selected ---------- */
+  (function () {
+    var st = new URLSearchParams(location.search).get('stage');
+    if (!st) return;
+    var r = $('#s-' + st.toLowerCase());
+    if (r && r.name === 'stage') r.checked = true;
   })();
 
   /* ---------- Decorative loops (layer links, pipelines) play twice in view, then rest ---------- */
