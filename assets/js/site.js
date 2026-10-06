@@ -164,6 +164,45 @@
     });
   }
 
+  /* ---------- How We Work: the stage story follows the scroll; the menu jumps to a stage ---------- */
+  var stx = $('[data-stx]');
+  if (stx) (function () {
+    var steps = $$('.stx-step', stx), links = $$('.stx-menu a', stx), scenes = $$('.stx-scn', stx);
+    var nEl = $('[data-stx-n]', stx), tEl = $('[data-stx-t]', stx), art = $('.stx-art svg', stx), cur = null;
+    function set(key) {
+      if (!key || key === cur) return;
+      cur = key;
+      steps.forEach(function (s, i) {
+        var on = s.dataset.stage === key;
+        s.classList.toggle('is-on', on);
+        if (on) { if (nEl) nEl.textContent = pad2(i + 1); }
+      });
+      links.forEach(function (a) {
+        if (a.dataset.stage === key) { a.setAttribute('aria-current', 'true'); if (tEl) tEl.textContent = $('b', a).textContent; }
+        else a.removeAttribute('aria-current');
+      });
+      scenes.forEach(function (g) { g.classList.toggle('is-on', g.dataset.stage === key); });
+    }
+    links.forEach(function (a) { a.addEventListener('click', function () { set(a.dataset.stage); }); });
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) set(e.target.dataset.stage); });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      steps.forEach(function (s) { io.observe(s); });
+    }
+    var fromHash = location.hash.replace('#', '');
+    set(steps.some(function (s) { return s.dataset.stage === fromHash; }) ? fromHash : steps[0].dataset.stage);
+    /* the drawing leans a little towards the pointer */
+    if (art && !reduceMotion) {
+      art.addEventListener('pointermove', function (e) {
+        var r = art.getBoundingClientRect();
+        art.style.setProperty('--ry', (((e.clientX - r.left) / r.width) - .5) * 8 + 'deg');
+        art.style.setProperty('--rx', (.5 - ((e.clientY - r.top) / r.height)) * 8 + 'deg');
+      });
+      art.addEventListener('pointerleave', function () { art.style.removeProperty('--rx'); art.style.removeProperty('--ry'); });
+    }
+  })();
+
   /* ---------- Work filters (Our Work) ---------- */
   var filterBar = $('[data-filters]');
   if (filterBar) {

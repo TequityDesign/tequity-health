@@ -53,79 +53,80 @@
   </section>
 
   <!-- ============ STAGE EXPLORER ============ -->
-  <section class="section--tight" style="padding-top:0" id="stages" data-dock="Stages" aria-label="Stages">
+  <section class="section--tight stx-sec" style="padding-top:0" id="stages" data-dock="Stages" aria-label="Stages" data-stx>
     <div class="wrap">
-      <div class="stage-tabs reveal" role="tablist" aria-label="Company stage">
-        <button class="stage-tab" role="tab" id="tab-idea" aria-controls="panel-idea" aria-selected="true" data-stage="idea"><span class="mono">01</span> Idea</button>
-        <button class="stage-tab" role="tab" id="tab-seed" aria-controls="panel-seed" aria-selected="false" tabindex="-1" data-stage="seed"><span class="mono">02</span> Seed</button>
-        <button class="stage-tab" role="tab" id="tab-pmf" aria-controls="panel-pmf" aria-selected="false" tabindex="-1" data-stage="pmf"><span class="mono">03</span> PMF</button>
-        <button class="stage-tab" role="tab" id="tab-scale" aria-controls="panel-scale" aria-selected="false" tabindex="-1" data-stage="scale"><span class="mono">04</span> Scale</button>
-      </div>
-
-      <!-- IDEA -->
-      <div class="stage-panel reveal" role="tabpanel" id="panel-idea" aria-labelledby="tab-idea" tabindex="0">
-        <div class="sp-main">
+      <div class="stx">
+        <nav class="stx-menu" aria-label="Jump to a stage">
+          <span class="mono stx-menu-h">Your stage</span>
+          <ol>
+            <li><a href="#idea" data-stage="idea" aria-current="true"><span class="mono">01</span><b>Idea</b></a></li>
+            <li><a href="#seed" data-stage="seed"><span class="mono">02</span><b>Seed</b></a></li>
+            <li><a href="#pmf" data-stage="pmf"><span class="mono">03</span><b>PMF</b></a></li>
+            <li><a href="#scale" data-stage="scale"><span class="mono">04</span><b>Scale</b></a></li>
+          </ol>
+        </nav>
+        <div class="stx-art" aria-hidden="true">
+          <svg viewBox="0 0 400 400" fill="none">
+            <defs><pattern id="stx-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" class="grid"/></pattern></defs>
+            <rect width="400" height="400" fill="url(#stx-grid)"/>
+            <g class="stx-scn is-on" data-stage="idea"><path class="guide" d="M40 330H360M40 70H360"/><path class="ln" pathLength="1" style="--d:0" d="M70 250 C110 200 120 170 160 170 S220 240 250 230 S300 150 330 140"/><circle class="nd pop" style="--d:.5" cx="70" cy="250" r="15"/><circle class="nd pop" style="--d:.7" cx="160" cy="170" r="15"/><circle class="nd pop" style="--d:.9" cx="250" cy="230" r="15"/><circle class="nd nd-dash pop" style="--d:1.1" cx="330" cy="140" r="15"/><circle class="pop fill" style="--d:1.3" cx="70" cy="250" r="6"/><circle class="pop fill" style="--d:1.5" cx="160" cy="170" r="6"/><circle class="pop fill" style="--d:1.7" cx="250" cy="230" r="6"/><text class="lbl pop" style="--d:.6" x="70" y="285">Referral</text><text class="lbl pop" style="--d:.8" x="160" y="140">Intake</text><text class="lbl pop" style="--d:1" x="250" y="268">Care plan</text><text class="lbl pop muted" style="--d:1.2" x="330" y="110">Follow-up</text><path class="ac" pathLength="1" style="--d:1.9" d="M48 312 v10 h224 v-10"/><text class="lbl pop acc" style="--d:2.3" x="160" y="348">First version</text></g>
+            <g class="stx-scn" data-stage="seed"><circle class="guide" cx="200" cy="200" r="98"/><path class="ln" pathLength="1" style="--d:0" d="M168 150 H232 Q250 150 250 168 V232 Q250 250 232 250 H168 Q150 250 150 232 V168 Q150 150 168 150 Z"/><path class="ln" pathLength="1" style="--d:0.5" d="M170 178 H222 M170 196 H210 M170 214 H230"/><g class="orbit"><circle class="pop fill-ink" style="--d:.7" cx="200" cy="102" r="7"/><circle class="pop fill-ink" style="--d:.8" cx="298" cy="200" r="7"/><circle class="pop fill-ink" style="--d:.9" cx="200" cy="298" r="7"/><circle class="pop fill-ink" style="--d:1" cx="102" cy="200" r="7"/></g><path class="ac" pathLength="1" style="--d:1.2" d="M30 200 H150"/><path class="ac" pathLength="1" style="--d:1.45" d="M346 64 L238 150"/><path class="ac" pathLength="1" style="--d:1.7" d="M346 336 L238 250"/><rect class="pop sq" style="--d:1.3" x="18" y="188" width="24" height="24" rx="6"/><rect class="pop sq" style="--d:1.55" x="334" y="52" width="24" height="24" rx="6"/><rect class="pop sq" style="--d:1.8" x="334" y="324" width="24" height="24" rx="6"/><text class="lbl pop" style="--d:1.4" x="30" y="236">EHR</text><text class="lbl pop" style="--d:1.65" x="330" y="36">Scheduling</text><text class="lbl pop" style="--d:1.9" x="330" y="374">Eligibility</text><text class="lbl pop acc" style="--d:2.1" x="200" y="276">Product pod</text></g>
+            <g class="stx-scn" data-stage="pmf"><path class="guide" d="M345 78V322"/><text class="lbl pop muted" style="--d:2" x="345" y="350">Release</text><path class="track" d="M112 110H330"/><circle class="nd pop" style="--d:0.10" cx="80" cy="110" r="17"/><text class="ini pop" style="--d:0.20" x="80" y="114">WL</text><text class="lbl pop left" style="--d:0.30" x="112" y="98">Integration</text><path class="ac" pathLength="1" style="--d:0.7" d="M112 110H300"/><path class="track" d="M112 170H330"/><circle class="nd pop" style="--d:0.25" cx="80" cy="170" r="17"/><text class="ini pop" style="--d:0.35" x="80" y="174">EN</text><text class="lbl pop left" style="--d:0.45" x="112" y="158">Care-team tool</text><path class="ac" pathLength="1" style="--d:0.9" d="M112 170H250"/><path class="track" d="M112 230H330"/><circle class="nd pop" style="--d:0.40" cx="80" cy="230" r="17"/><text class="ini pop" style="--d:0.50" x="80" y="234">AI</text><text class="lbl pop left" style="--d:0.60" x="112" y="218">AI feature</text><path class="ac" pathLength="1" style="--d:1.1" d="M112 230H330"/><path class="track" d="M112 290H330"/><circle class="nd pop" style="--d:0.55" cx="80" cy="290" r="17"/><text class="ini pop" style="--d:0.65" x="80" y="294">IN</text><text class="lbl pop left" style="--d:0.75" x="112" y="278">Platform</text><path class="ac" pathLength="1" style="--d:1.3" d="M112 290H215"/><path class="ln" pathLength="1" style="--d:1.9" d="M318 224l8 8 14-16"/></g>
+            <g class="stx-scn" data-stage="scale"><rect class="guide" x="70" y="80" width="260" height="210" rx="36"/><circle class="pop fill-ink" style="--d:0.30" cx="146" cy="150" r="7"/><circle class="pop fill-ink" style="--d:0.37" cx="182" cy="150" r="7"/><circle class="pop fill-ink" style="--d:0.44" cx="218" cy="150" r="7"/><circle class="pop fill-ink" style="--d:0.51" cx="254" cy="150" r="7"/><circle class="pop fill-ink" style="--d:0.58" cx="146" cy="186" r="7"/><circle class="pop fill-ink" style="--d:0.65" cx="182" cy="186" r="7"/><circle class="pop fill-ink" style="--d:0.72" cx="218" cy="186" r="7"/><circle class="pop fill-ink" style="--d:0.79" cx="254" cy="186" r="7"/><circle class="pop fill-ink" style="--d:0.86" cx="146" cy="222" r="7"/><circle class="pop fill-ink" style="--d:0.93" cx="182" cy="222" r="7"/><circle class="pop fill-ink" style="--d:1.00" cx="218" cy="222" r="7"/><circle class="pop fill-ink" style="--d:1.07" cx="254" cy="222" r="7"/><path class="ac" pathLength="1" style="--d:1.4" d="M106 80 H294 Q330 80 330 116 V254 Q330 290 294 290 H106 Q70 290 70 254 V116 Q70 80 106 80 Z"/><text class="lbl pop muted" style="--d:.2" x="200" y="62">Run by Tequity</text><path class="track" d="M110 340H290"/><circle class="pop fill hand" style="--d:1.4" cx="110" cy="340" r="7"/><text class="lbl pop" style="--d:.5" x="110" y="372">Dedicated team</text><text class="lbl pop acc" style="--d:2.4" x="290" y="372">Your team</text></g>
+          </svg>
+          <span class="stx-cap mono"><span data-stx-n>01</span> &middot; <span data-stx-t>Idea</span></span>
+        </div>
+        <div class="stx-steps">
+        <article class="stx-step" id="idea" data-stage="idea" aria-labelledby="idea-h">
           <span class="eyebrow">Stage 01 &middot; Idea</span>
-          <h2 class="h2">Prove the workflow, then ship something real.</h2>
-          <p class="sit">A healthcare problem and product concept exist, but the workflow and solution still need validation.</p>
-          <div class="sp-offer"><span class="mono">Tequity offer</span><p>Validate the product, define the workflow, design it and deliver a focused working MVP.</p></div>
-        </div>
-        <div class="sp-grid">
-          <div class="sp-cell"><span class="mono">What you need</span><ul><li>Clarity on the real workflow and who it serves</li><li>A first version scoped to what matters</li><li>Something real users can try</li></ul></div>
-          <div class="sp-cell"><span class="mono">Team model</span><div class="roles" data-verify="Idea-stage team shape: confirm standard roles with delivery."><span class="role"><i>PL</i>Product lead</span><span class="role"><i>PD</i>Product designer</span><span class="role"><i>FS</i>Full-stack engineers</span><span class="role"><i>QA</i>QA</span><span class="role opt"><i>AI</i>AI engineer, if needed</span></div></div>
-          <div class="sp-cell"><span class="mono">Typical first engagement</span><p>Workflow discovery and MVP scoping, followed by a focused build. A focused MVP can be shipped in four weeks when the scope, data access and external dependencies allow it.</p></div>
-          <div class="sp-cell"><span class="mono">Expected output</span><ul><li>Mapped workflow and user journeys</li><li>Prototype tested with target users</li><li>Working MVP in production</li><li>A clear list of what is deliberately out of scope</li></ul></div>
-        </div>
-      </div>
-
-      <!-- SEED -->
-      <div class="stage-panel" role="tabpanel" id="panel-seed" aria-labelledby="tab-seed" tabindex="0" hidden>
-        <div class="sp-main">
+          <h2 class="h2" id="idea-h">Prove the workflow, then ship something real.</h2>
+          <p class="stx-sit">A healthcare problem and product concept exist, but the workflow and solution still need validation.</p>
+          <div class="stx-offer"><span class="mono">Tequity offer</span><p>Validate the product, define the workflow, design it and deliver a focused working MVP.</p></div>
+          <div class="stx-cells">
+            <div class="sp-cell"><span class="mono">What you need</span><ul><li>Clarity on the real workflow and who it serves</li><li>A first version scoped to what matters</li><li>Something real users can try</li></ul></div>
+            <div class="sp-cell"><span class="mono">Team model</span><div class="roles" data-verify="Idea-stage team shape: confirm standard roles with delivery."><span class="role"><i>PL</i>Product lead</span><span class="role"><i>PD</i>Product designer</span><span class="role"><i>FS</i>Full-stack engineers</span><span class="role"><i>QA</i>QA</span><span class="role opt"><i>AI</i>AI engineer, if needed</span></div></div>
+            <div class="sp-cell"><span class="mono">Typical first engagement</span><p>Workflow discovery and MVP scoping, followed by a focused build. A focused MVP can be shipped in four weeks when the scope, data access and external dependencies allow it.</p></div>
+            <div class="sp-cell"><span class="mono">Expected output</span><ul><li>Mapped workflow and user journeys</li><li>Prototype tested with target users</li><li>Working MVP in production</li><li>A clear list of what is deliberately out of scope</li></ul></div>
+          </div>
+        </article>
+        <article class="stx-step" id="seed" data-stage="seed" aria-labelledby="seed-h">
           <span class="eyebrow">Stage 02 &middot; Seed</span>
-          <h2 class="h2">Turn early feedback into a product people rely on.</h2>
-          <p class="sit">An early product exists and real users are producing feedback.</p>
-          <div class="sp-offer"><span class="mono">Tequity offer</span><p>Deploy a flexible product pod to improve workflows, add essential integrations and accelerate adoption.</p></div>
-        </div>
-        <div class="sp-grid">
-          <div class="sp-cell"><span class="mono">What you need</span><ul><li>Faster iteration on the workflows users struggle with</li><li>The first integrations customers ask for</li><li>Reliability you can put in front of a clinic</li></ul></div>
-          <div class="sp-cell"><span class="mono">Team model</span><div class="roles"><span class="role"><i>PL</i>Product lead</span><span class="role"><i>PD</i>Designer</span><span class="role"><i>EN</i>Engineers</span><span class="role"><i>QA</i>QA</span><span class="role opt"><i>IN</i>Integration engineer</span></div><p>The pod flexes month to month as your priorities change.</p></div>
-          <div class="sp-cell"><span class="mono">Typical first engagement</span><p>A product and workflow review of what exists, then a prioritised roadmap delivered in short release cycles.</p></div>
-          <div class="sp-cell"><span class="mono">Expected output</span><ul><li>Improved core workflows</li><li>Essential integrations, such as EHR, eligibility or scheduling</li><li>Usage instrumentation</li><li>A steady release cadence</li></ul></div>
-        </div>
-      </div>
-
-      <!-- PMF -->
-      <div class="stage-panel" role="tabpanel" id="panel-pmf" aria-labelledby="tab-pmf" tabindex="0" hidden>
-        <div class="sp-main">
+          <h2 class="h2" id="seed-h">Turn early feedback into a product people rely on.</h2>
+          <p class="stx-sit">An early product exists and real users are producing feedback.</p>
+          <div class="stx-offer"><span class="mono">Tequity offer</span><p>Deploy a flexible product pod to improve workflows, add essential integrations and accelerate adoption.</p></div>
+          <div class="stx-cells">
+            <div class="sp-cell"><span class="mono">What you need</span><ul><li>Faster iteration on the workflows users struggle with</li><li>The first integrations customers ask for</li><li>Reliability you can put in front of a clinic</li></ul></div>
+            <div class="sp-cell"><span class="mono">Team model</span><div class="roles"><span class="role"><i>PL</i>Product lead</span><span class="role"><i>PD</i>Designer</span><span class="role"><i>EN</i>Engineers</span><span class="role"><i>QA</i>QA</span><span class="role opt"><i>IN</i>Integration engineer</span></div><p>The pod flexes month to month as your priorities change.</p></div>
+            <div class="sp-cell"><span class="mono">Typical first engagement</span><p>A product and workflow review of what exists, then a prioritised roadmap delivered in short release cycles.</p></div>
+            <div class="sp-cell"><span class="mono">Expected output</span><ul><li>Improved core workflows</li><li>Essential integrations, such as EHR, eligibility or scheduling</li><li>Usage instrumentation</li><li>A steady release cadence</li></ul></div>
+          </div>
+        </article>
+        <article class="stx-step" id="pmf" data-stage="pmf" aria-labelledby="pmf-h">
           <span class="eyebrow">Stage 03 &middot; PMF</span>
-          <h2 class="h2">More priorities than people. Add owners, not headcount.</h2>
-          <p class="sit">The product has traction, but the internal team has more priorities than capacity.</p>
-          <div class="sp-offer"><span class="mono">Tequity offer</span><p>Embed specialist product, engineering, integration, AI and design capability around clearly owned workstreams.</p></div>
-        </div>
-        <div class="sp-grid">
-          <div class="sp-cell"><span class="mono">What you need</span><ul><li>Specialists who can own a workstream end to end</li><li>Minimal management overhead for your leaders</li><li>Work that fits your standards and roadmap</li></ul></div>
-          <div class="sp-cell"><span class="mono">Team model</span><div class="roles"><span class="role"><i>WL</i>Workstream lead</span><span class="role"><i>EN</i>Engineers</span><span class="role"><i>IN</i>Integration</span><span class="role"><i>AI</i>AI</span><span class="role"><i>PD</i>Design</span></div><p>Each workstream has a named lead who reports into your product and engineering leadership.</p></div>
-          <div class="sp-cell"><span class="mono">Typical first engagement</span><p>One workstream with an agreed owner, outcome and acceptance criteria, such as a new integration, an AI feature or a care-team tool.</p></div>
-          <div class="sp-cell"><span class="mono">Expected output</span><ul><li>Shipped workstream outcomes</li><li>Evaluation in place for AI features</li><li>Documentation and handover your team can use</li></ul></div>
-        </div>
-      </div>
-
-      <!-- SCALE -->
-      <div class="stage-panel" role="tabpanel" id="panel-scale" aria-labelledby="tab-scale" tabindex="0" hidden>
-        <div class="sp-main">
+          <h2 class="h2" id="pmf-h">More priorities than people. Add owners, not headcount.</h2>
+          <p class="stx-sit">The product has traction, but the internal team has more priorities than capacity.</p>
+          <div class="stx-offer"><span class="mono">Tequity offer</span><p>Embed specialist product, engineering, integration, AI and design capability around clearly owned workstreams.</p></div>
+          <div class="stx-cells">
+            <div class="sp-cell"><span class="mono">What you need</span><ul><li>Specialists who can own a workstream end to end</li><li>Minimal management overhead for your leaders</li><li>Work that fits your standards and roadmap</li></ul></div>
+            <div class="sp-cell"><span class="mono">Team model</span><div class="roles"><span class="role"><i>WL</i>Workstream lead</span><span class="role"><i>EN</i>Engineers</span><span class="role"><i>IN</i>Integration</span><span class="role"><i>AI</i>AI</span><span class="role"><i>PD</i>Design</span></div><p>Each workstream has a named lead who reports into your product and engineering leadership.</p></div>
+            <div class="sp-cell"><span class="mono">Typical first engagement</span><p>One workstream with an agreed owner, outcome and acceptance criteria, such as a new integration, an AI feature or a care-team tool.</p></div>
+            <div class="sp-cell"><span class="mono">Expected output</span><ul><li>Shipped workstream outcomes</li><li>Evaluation in place for AI features</li><li>Documentation and handover your team can use</li></ul></div>
+          </div>
+        </article>
+        <article class="stx-step" id="scale" data-stage="scale" aria-labelledby="scale-h">
           <span class="eyebrow">Stage 04 &middot; Scale</span>
-          <h2 class="h2">Sustained capacity, and a path to owning it.</h2>
-          <p class="sit">The company needs sustained capacity and stronger ownership of its long-term team.</p>
-          <div class="sp-offer"><span class="mono">Tequity offer</span><p>Build a dedicated team and, when scale and commitment justify it, offer a structured Build-Operate-Transfer model.</p></div>
-        </div>
-        <div class="sp-grid">
-          <div class="sp-cell"><span class="mono">What you need</span><ul><li>A stable team working to your engineering standards</li><li>Continuity of people and product knowledge</li><li>An option to bring the team in-house</li></ul></div>
-          <div class="sp-cell"><span class="mono">Team model</span><div class="roles"><span class="role"><i>EM</i>Engineering manager</span><span class="role"><i>EN</i>Dedicated engineers</span><span class="role"><i>QA</i>QA</span><span class="role"><i>PD</i>Design</span></div><p>A long-term team built around your product and standards.</p></div>
-          <div class="sp-cell"><span class="mono">Typical first engagement</span><p>Team design: roles, standards, security and data-access controls, and a ramp-up plan.</p></div>
-          <div class="sp-cell"><span class="mono">Expected output</span><ul><li>A dedicated team operating to your standards</li><li>Documented processes and ownership</li><li>Where agreed, a defined route to transfer</li></ul></div>
+          <h2 class="h2" id="scale-h">Sustained capacity, and a path to owning it.</h2>
+          <p class="stx-sit">The company needs sustained capacity and stronger ownership of its long-term team.</p>
+          <div class="stx-offer"><span class="mono">Tequity offer</span><p>Build a dedicated team and, when scale and commitment justify it, offer a structured Build-Operate-Transfer model.</p></div>
+          <div class="stx-cells">
+            <div class="sp-cell"><span class="mono">What you need</span><ul><li>A stable team working to your engineering standards</li><li>Continuity of people and product knowledge</li><li>An option to bring the team in-house</li></ul></div>
+            <div class="sp-cell"><span class="mono">Team model</span><div class="roles"><span class="role"><i>EM</i>Engineering manager</span><span class="role"><i>EN</i>Dedicated engineers</span><span class="role"><i>QA</i>QA</span><span class="role"><i>PD</i>Design</span></div><p>A long-term team built around your product and standards.</p></div>
+            <div class="sp-cell"><span class="mono">Typical first engagement</span><p>Team design: roles, standards, security and data-access controls, and a ramp-up plan.</p></div>
+            <div class="sp-cell"><span class="mono">Expected output</span><ul><li>A dedicated team operating to your standards</li><li>Documented processes and ownership</li><li>Where agreed, a defined route to transfer</li></ul></div>
+          </div>
+        </article>
         </div>
       </div>
-
       <div class="stage-foot">
         <p class="qualifier"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="7.25" stroke="currentColor" stroke-width="1.4"/><path d="M9 8.2v4.3M9 5.6v.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>About timelines: a blanket four-week promise does not fit every healthcare product. EHR access, clinical validation, regulated devices and multiple external integrations each add time, and we will map them with you before we commit to a date.</span></p>
       </div>
