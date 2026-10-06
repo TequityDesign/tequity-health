@@ -1939,3 +1939,63 @@ main:not(:has(> section.cta:last-child)) + .site-footer { border-radius: var(--r
 
 .hx .btn--light { background: var(--acc); color: var(--ink); }
 .hx .btn--light:hover { background: #2CC7AD; }
+
+/* ==========================================================================
+   CLIENT COLOURS: each case takes on its client's colour, so the work reads
+   as a collaboration. Tequity green stays on the call band and the footer.
+   --cc fills, dots and glows · --cc-ink text on white or beige (4.7:1+) · --cc-deep the hero band
+   Stitch, Elevare and Laptis are sampled from their product images; Lexi and Resonately are placeholders.
+   ========================================================================== */
+.client-stitch     { --cc: #865CE9; --cc-ink: #7A4BE7; --cc-deep: #22183A; }
+.client-lexi       { --cc: #D08A1E; --cc-ink: #936215; --cc-deep: #3A2C18; }
+.client-elevare    { --cc: #C0829A; --cc-ink: #9F506F; --cc-deep: #302127; }
+.client-resonately { --cc: #E0603A; --cc-ink: #BD421E; --cc-deep: #392018; }
+.client-laptis     { --cc: #4992F2; --cc-ink: #1067DB; --cc-deep: #15263C; }
+
+/* Our Work index: the active row and the picture behind it take the client's colour */
+.bx-rows a[class*="client-"]::before { background: var(--cc); }
+.bx-rows a[class*="client-"].is-on > span:nth-child(2) { color: color-mix(in srgb, var(--cc) 45%, #fff); }
+.bx-amb { z-index: 0; }
+.bx-slide[class*="client-"]::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(55% 65% at 72% 42%, color-mix(in srgb, var(--cc) 42%, transparent), transparent 72%); }
+.bx-slide[class*="client-"] .bx-pic, .bx-slide[class*="client-"] .mock { position: relative; z-index: 2; }
+.bx-slide.is-mock[class*="client-"] { background: radial-gradient(80% 90% at 75% 40%, color-mix(in srgb, var(--cc) 34%, var(--cc-deep)), var(--cc-deep) 70%); }
+
+/* Our Work stories: on hover the picture, the label and the ticks turn to the client's colour */
+.story .story-visual, .story .story-visual::before { transition: background-color .5s var(--ease), box-shadow .5s var(--ease); }
+.story .work-client, .story .story-built li svg { transition: color .35s var(--ease); }
+.story[class*="client-"]:hover .story-visual { background-color: color-mix(in srgb, var(--cc) 14%, #fff); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cc) 34%, transparent); }
+.story[class*="client-"]:hover .story-visual::before { background-image: radial-gradient(color-mix(in srgb, var(--cc) 50%, transparent) 1px, transparent 1px); }
+.story[class*="client-"]:hover .work-client, .story[class*="client-"]:hover .story-built li svg { color: var(--cc-ink); }
+
+/* "More healthcare work" rows glow in their own client's colour */
+.more-item[class*="client-"]:hover { background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--cc) 16%, transparent), transparent); }
+.more-item[class*="client-"]:hover .arrow { background: var(--cc-ink); border-color: var(--cc-ink); color: #fff; }
+.more-item[class*="client-"] .area { transition: color .3s; }
+.more-item[class*="client-"]:hover .area { color: var(--cc-ink); }
+
+/* case pages: the hero in the client's deep colour, accents in theirs */
+.cs-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
+.collab { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 12px; border-radius: 999px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; }
+.collab i { font-style: normal; opacity: .6; }
+.cs-themed { --focus: var(--cc-ink); }
+.cs-themed .cs-hero { --focus: color-mix(in srgb, var(--cc) 45%, #fff); background: radial-gradient(70% 120% at 85% 0%, color-mix(in srgb, var(--cc) 30%, var(--cc-deep)), var(--cc-deep) 70%); color: #fff; padding-bottom: clamp(120px, 14vw, 200px); }
+.cs-themed .cs-hero .crumbs, .cs-themed .cs-hero .crumbs a { color: rgba(255, 255, 255, .78); }
+.cs-themed .cs-hero .crumbs a:hover { color: #fff; }
+.cs-themed .cs-hero .collab { color: #fff; background: rgba(255, 255, 255, .08); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16); }
+.cs-themed .cs-hero .collab span:last-child { color: color-mix(in srgb, var(--cc) 40%, #fff); }
+.cs-themed .cs-hero .eyebrow { color: color-mix(in srgb, var(--cc) 45%, #fff); }
+.cs-themed .cs-hero .h1 { color: #fff; }
+.cs-themed .cs-hero .lede { color: rgba(255, 255, 255, .84); }
+.cs-themed .cs-hero .facts, .cs-themed .cs-hero .facts div { border-color: rgba(255, 255, 255, .14); }
+.cs-themed .cs-hero .facts dt { color: color-mix(in srgb, var(--cc) 40%, #fff); }
+.cs-themed .cs-hero .facts dd { color: #fff; }
+.cs-themed .cs-hero .layer-tag { background: rgba(255, 255, 255, .1); color: #fff; border-color: rgba(255, 255, 255, .22); }
+.cs-themed .cs-hero .layer-ai { background: var(--cc-ink); border-color: transparent; }
+.cs-themed .cs-hero + .wrap .cs-visual { position: relative; margin-top: calc(-1 * clamp(96px, 12vw, 170px)); box-shadow: 0 40px 80px -40px rgba(21, 20, 15, .45); }
+.cs-themed .toc a.is-active { border-left-color: var(--cc); }
+.cs-themed .follow-cap .mono, .cs-themed .outcome svg, .cs-themed .story-built li svg { color: var(--cc-ink); }
+.cs-themed .outcome b { color: var(--cc-ink); }
+.cs-themed .phase li::before { background: var(--cc); }
+.cs-themed .scope .did { background: color-mix(in srgb, var(--cc) 7%, #fff); border-color: color-mix(in srgb, var(--cc) 36%, transparent); }
+.cs-themed .scope .did .mono { color: var(--cc-ink); }
+.cs-themed .follow-card { box-shadow: 0 0 0 1px color-mix(in srgb, var(--cc) 30%, transparent), 0 30px 60px -30px color-mix(in srgb, var(--cc-deep) 60%, transparent); }

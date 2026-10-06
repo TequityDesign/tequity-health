@@ -90,6 +90,22 @@ The site borrows the Design Labs layouts, so the two read as one studio. It keep
 
 Everything above respects Reduce Motion: the loader is skipped, and nothing auto-advances or tilts.
 
+## Client colours
+
+Each case study takes on its client's colour, so the work reads as a collaboration rather than a portfolio. The case page hero is a deep shade of that colour, with a "Tequity × Client" mark, and the outcome figures, ticks, phase dots and scope box use it too. On Our Work, the index row, the picture behind it and each story card turn to the client's colour on hover. Tequity green stays on the call band and the footer.
+
+The colours are set in one block, `client colours`, at the end of `site.css`. Each client has `--cc` for fills, `--cc-ink` for text (4.7:1 or better on white and beige) and `--cc-deep` for the hero band.
+
+| Client | Colour | Source |
+| --- | --- | --- |
+| Stitch | `#865CE9` | Sampled from the product image |
+| Elevare | `#C0829A` | Sampled from the product image |
+| Laptis | `#4992F2` | Sampled from the product image |
+| Lexi | `#D08A1E` | Placeholder |
+| Resonately | `#E0603A` | Placeholder |
+
+Replace these with each client's official brand colour before launch. Review mode flags each one.
+
 ## Accessibility (WCAG 2.2 AA)
 
 Checked in October 2026 with axe-core 4.10 on all 12 pages at 1440px and 375px, plus manual checks.
