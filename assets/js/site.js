@@ -975,7 +975,7 @@
   var hb = $('[data-hb]');
   if (hb) (function () {
     var form = $('[data-ask]', hb), input = $('#hb-ask-in', hb), msg = $('[data-ask-msg]', hb);
-    var chips = $$('.hb-chips button', hb), sets = $$('.hbp', hb), visual = $('[data-hb-visual]', hb);
+    var chips = $$('.hb-chips [data-stage]', hb), sets = $$('.hbp', hb), visual = $('[data-hb-visual]', hb);
     var NAMES = { idea: 'Idea', seed: 'Seed', pmf: 'PMF', scale: 'Scale' };
     /* plain-language clues for each stage; the strongest match wins */
     var CLUES = {
