@@ -47,57 +47,68 @@
         <h1 class="hb-title" id="hb-title">Build healthcare products that work <span class="rot-line"><span class="rot" data-rot><span>for patients.</span><span>for care teams.</span><span>for clinicians.</span><span>in the real world.</span></span></span></h1>
         <p class="lede">From patient and provider applications to healthcare integrations and production AI, Tequity helps digital-health founders move from an idea to a scalable product.</p>
       </div>
-      <a class="hb-tile hb-cta" href="contact.html">
-        <span class="mono">30 minutes on video</span>
-        <b>Book a discovery call <svg viewBox="0 0 34 34" fill="none" aria-hidden="true"><path d="M5 17h24m0 0L19 7m10 10L19 27" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
-      </a>
-      <div class="hb-tile hb-stage">
-        <div class="hb-ask">
-          <span class="mono" id="hb-stage-label">Where are you today?</span>
-          <div class="hb-seg" role="tablist" aria-labelledby="hb-stage-label">
-            <button type="button" role="tab" id="hb-tab-idea" data-stage="idea" aria-controls="hb-offers" aria-selected="true">Idea</button>
-            <button type="button" role="tab" id="hb-tab-seed" data-stage="seed" aria-controls="hb-offers" aria-selected="false" tabindex="-1">Seed</button>
-            <button type="button" role="tab" id="hb-tab-pmf" data-stage="pmf" aria-controls="hb-offers" aria-selected="false" tabindex="-1">PMF</button>
-            <button type="button" role="tab" id="hb-tab-scale" data-stage="scale" aria-controls="hb-offers" aria-selected="false" tabindex="-1">Scale</button>
-          </div>
+      <form class="hb-tile hb-asker" data-ask novalidate>
+        <div class="hb-asker-top">
+          <label class="hb-q" for="hb-ask-in">What stage are you at?</label>
+          <span class="mono">Type it in your words, or pick one</span>
         </div>
-        <div class="hb-offers" id="hb-offers" role="tabpanel" aria-labelledby="hb-tab-idea">
-          <a class="hb-offer is-on" data-stage="idea" href="how-we-work.html#idea"><span class="sr-only">How we work at the Idea stage: </span><b>Prove the workflow and ship a focused MVP.</b><span class="hb-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-          <a class="hb-offer" aria-hidden="true" tabindex="-1" data-stage="seed" href="how-we-work.html#seed"><span class="sr-only">How we work at the Seed stage: </span><b>A flexible pod that adds integrations.</b><span class="hb-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-          <a class="hb-offer" aria-hidden="true" tabindex="-1" data-stage="pmf" href="how-we-work.html#pmf"><span class="sr-only">How we work at the PMF stage: </span><b>Specialists who own whole workstreams.</b><span class="hb-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-          <a class="hb-offer" aria-hidden="true" tabindex="-1" data-stage="scale" href="how-we-work.html#scale"><span class="sr-only">How we work at the Scale stage: </span><b>A dedicated team, yours when it makes sense.</b><span class="hb-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <div class="hb-field">
+          <input id="hb-ask-in" name="q" type="text" autocomplete="off" placeholder="e.g. We have an MVP live with two pilot clinics">
+          <button class="hb-send" type="submit" aria-label="Show work from founders at my stage"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
-      </div>
-      <div class="hb-tile hb-visual">
+        <div class="hb-chips" role="group" aria-label="Or pick your stage"><button type="button" data-stage="idea" aria-pressed="false">Idea</button><button type="button" data-stage="seed" aria-pressed="false">Seed</button><button type="button" data-stage="pmf" aria-pressed="false">PMF</button><button type="button" data-stage="scale" aria-pressed="false">Scale</button></div>
+        <p class="hb-ask-msg" data-ask-msg aria-live="polite">We will show you what we built for founders where you are now.</p>
+      </form>
+      <div class="hb-tile hb-visual" data-hb-visual>
         <img src="assets/img/team.jpg" alt="The Tequity team at work in the studio" width="1700" height="674" fetchpriority="high" decoding="async" data-verify="Hero photo is team.jpg from tequity.tech / Design Labs. Replace with a photo of the Tequity team if this one is stock.">
-        <span class="hb-label">What you get first &middot; illustrative</span>
-        <button class="hb-pause" type="button" data-hb-pause aria-label="Pause the rotating stages and headline"><svg class="i-pause" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg class="i-play" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5v-9z" fill="currentColor"/></svg></button>
-        <div class="hb-cards">
-          <div class="hb-card is-on" data-stage="idea">
-            <div class="hb-card-h"><b>Your first version</b></div>
-            <ol class="hb-journey"><li class="in">Referral</li><li class="in">Intake</li><li class="in">Care plan</li><li>Follow-up</li></ol>
-          </div>
-          <div class="hb-card" data-stage="seed" aria-hidden="true">
-            <div class="hb-card-h"><b>Integrations, in order</b></div>
-            <div class="hb-rows">
-              <div class="hb-row"><span>Scheduling and SMS</span><span class="pill teal">Live</span></div>
-              <div class="hb-row"><span>Eligibility checks</span><span class="pill amber">In progress</span></div>
-              <div class="hb-row"><span>EHR &middot; FHIR</span><span class="pill gray">Next</span></div>
-            </div>
-          </div>
-          <div class="hb-card" data-stage="pmf" aria-hidden="true">
-            <div class="hb-card-h"><b>Workstream: AI follow-up calls</b></div>
-            <div class="hb-rows">
-              <div class="hb-row"><span>Symptoms go to a nurse, not a reply</span><span class="mono">Done</span></div>
-              <div class="hb-row"><span>Every call logged and traceable</span><span class="mono">Done</span></div>
-              <div class="hb-row"><span>Passes the evaluation set</span><span class="mono">In review</span></div>
-            </div>
-          </div>
-          <div class="hb-card" data-stage="scale" aria-hidden="true">
-            <div class="hb-card-h"><b>Your dedicated team</b></div>
-            <div class="hb-roles"><span class="role"><i>EM</i>Engineering manager</span><span class="role"><i>EN</i>Engineers</span><span class="role"><i>QA</i>QA</span><span class="role"><i>PD</i>Designer</span></div>
-          </div>
+        <button class="hb-pause" type="button" data-hb-pause aria-label="Pause the rotating headline"><svg class="i-pause" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5.5 3.5v9M10.5 3.5v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg class="i-play" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3.5l7 4.5-7 4.5v-9z" fill="currentColor"/></svg></button>
+        <!-- hbproof:start -->
+        <div class="hbp" data-stage="all">
+          <div class="hbp-h"><span class="mono">Proof of work</span><b>Twelve healthcare products, from first MVP to scale</b></div>
+          <ul class="hbp-list">
+            <li><a class="hbp-card" href="work/stitch.html"><span class="hbp-img"><img src="assets/img/uc-care-coordination.jpg" alt="" width="96" height="72" decoding="async"></span><span class="hbp-txt"><small>Stitch &middot; Post-transplant care coordination</small><b>Care coordination from MVP through a strategic pivot</b><em>Product strategy, Design, Applications</em></span></a></li>
+            <li><a class="hbp-card" href="work/lexi.html"><span class="hbp-img"><img src="assets/img/uc-voice.jpg" alt="" width="96" height="72" decoding="async"></span><span class="hbp-txt"><small>Lexi &middot; Medical interpretation</small><b>Real-time voice interpretation across clinics and phone lines</b><em>Applied AI, Integrations, Applications</em></span></a></li>
+            <li><a class="hbp-card" href="work/elevare.html"><span class="hbp-img"><img src="assets/img/uc-maternal.svg" alt="" width="96" height="72" decoding="async"></span><span class="hbp-txt"><small>Elevare &middot; Maternal health</small><b>A maternal-health patient app, rebuilt for the care team behind it</b><em>Design, Applications, QA and security</em></span></a></li>
+          </ul>
+          <div class="hbp-cta"><a class="btn btn--primary btn--sm" href="contact.html" data-ask-book>Book a discovery call <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="link" href="#your-stage">See all the work</a></div>
         </div>
+        <div class="hbp" data-stage="idea" hidden>
+          <div class="hbp-h"><span class="mono">Idea &middot; 3 stories</span><b>What we built for founders at Idea</b></div>
+          <ul class="hbp-list">
+            <li><a class="hbp-card" href="work/stitch.html"><span class="hbp-img"><img src="assets/img/uc-care-coordination.jpg" alt="" width="96" height="72" decoding="async"></span><span class="hbp-txt"><small>Stitch &middot; Post-transplant care coordination</small><b>Care coordination from MVP through a strategic pivot</b><em>Product strategy, Design, Applications</em></span></a></li>
+            <li><a class="hbp-card" href="https://tequity.tech/case-studies/stacked-health-blood-testing" rel="noopener"><span class="hbp-img"><img src="assets/img/uc-diagnostics.jpg" alt="" width="96" height="72" decoding="async"></span><span class="hbp-txt"><small>Stacked Health &middot; Proactive blood testing</small><b>Designing a proactive blood-testing experience</b><em>Product strategy, Design</em></span></a></li>
+            <li><a class="hbp-card" href="https://tequity.tech/case-studies/veera-health" rel="noopener"><span class="hbp-img"><img src="assets/img/uc-cycle.svg" alt="" width="96" height="72" decoding="async"></span><span class="hbp-txt"><small>Veera Health &middot; PCOS care</small><b>A personalised platform for PCOS care</b><em>Design, Applications</em></span></a></li>
+          </ul>
+          <div class="hbp-cta"><a class="btn btn--primary btn--sm" href="contact.html?stage=idea" data-ask-book>Book a discovery call <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="link" href="#your-stage" data-goto-pick="idea">See all 3</a></div>
+        </div>
+        <div class="hbp" data-stage="seed" hidden>
+          <div class="hbp-h"><span class="mono">Seed &middot; 5 stories</span><b>What we built for founders at Seed</b></div>
+          <ul class="hbp-list">
+            <li><a class="hbp-card" href="work/stitch.html"><span class="hbp-img"><img src="assets/img/uc-care-coordination.jpg" alt="" width="96" height="72" decoding="async"></span><span class="hbp-txt"><small>Stitch &middot; Post-transplant care coordination</small><b>Care coordination from MVP through a strategic pivot</b><em>Product strategy, Design, Applications</em></span></a></li>
+            <li><a class="hbp-card" href="work/elevare.html"><span class="hbp-img"><img src="assets/img/uc-maternal.svg" alt="" width="96" height="72" decoding="async"></span><span class="hbp-txt"><small>Elevare &middot; Maternal health</small><b>A maternal-health patient app, rebuilt for the care team behind it</b><em>Design, Applications, QA and security</em></span></a></li>
+            <li><a class="hbp-card" href="https://tequity.tech/case-studies/svaim-health-records" rel="noopener"><span class="hbp-img"><img src="assets/img/uc-records.svg" alt="" width="96" height="72" decoding="async"></span><span class="hbp-txt"><small>Svaim &middot; Patient health records</small><b>A patient-first health records platform</b><em>Applications, Data and integrations</em></span></a></li>
+          </ul>
+          <div class="hbp-cta"><a class="btn btn--primary btn--sm" href="contact.html?stage=seed" data-ask-book>Book a discovery call <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="link" href="#your-stage" data-goto-pick="seed">See all 5</a></div>
+        </div>
+        <div class="hbp" data-stage="pmf" hidden>
+          <div class="hbp-h"><span class="mono">PMF &middot; 3 stories</span><b>What we built for founders at PMF</b></div>
+          <ul class="hbp-list">
+            <li><a class="hbp-card" href="work/lexi.html"><span class="hbp-img"><img src="assets/img/uc-voice.jpg" alt="" width="96" height="72" decoding="async"></span><span class="hbp-txt"><small>Lexi &middot; Medical interpretation</small><b>Real-time voice interpretation across clinics and phone lines</b><em>Applied AI, Integrations, Applications</em></span></a></li>
+            <li><a class="hbp-card" href="https://tequity.tech/case-studies/muse-medspa" rel="noopener"><span class="hbp-img"><img src="assets/img/uc-medspa.jpg" alt="" width="96" height="72" decoding="async"></span><span class="hbp-txt"><small>Muse &middot; Med-spa operations</small><b>Streamlining med-spa operations</b><em>Applications, Data engineering</em></span></a></li>
+            <li><a class="hbp-card" href="our-work.html#anonymous"><span class="hbp-img"><img src="assets/img/uc-outreach.svg" alt="" width="96" height="72" decoding="async"></span><span class="hbp-txt"><small>Name withheld &middot; Patient outreach</small><b>Patient outreach at scale, with AI SMS and voice</b><em>Applied AI, Integrations, Data engineering</em></span></a></li>
+          </ul>
+          <div class="hbp-cta"><a class="btn btn--primary btn--sm" href="contact.html?stage=pmf" data-ask-book>Book a discovery call <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="link" href="#your-stage" data-goto-pick="pmf">See all 3</a></div>
+        </div>
+        <div class="hbp" data-stage="scale" hidden>
+          <div class="hbp-h"><span class="mono">Scale &middot; 3 stories</span><b>What we built for founders at Scale</b></div>
+          <ul class="hbp-list">
+            <li><a class="hbp-card" href="our-work.html#anonymous"><span class="hbp-img"><img src="assets/img/uc-outreach.svg" alt="" width="96" height="72" decoding="async"></span><span class="hbp-txt"><small>Name withheld &middot; Patient outreach</small><b>Patient outreach at scale, with AI SMS and voice</b><em>Applied AI, Integrations, Data engineering</em></span></a></li>
+            <li><a class="hbp-card" href="https://tequity.tech/case-studies/alto-neuroscience" rel="noopener"><span class="hbp-img"><img src="assets/img/uc-neuro.jpg" alt="" width="96" height="72" decoding="async"></span><span class="hbp-txt"><small>Alto Neuroscience &middot; Clinical EEG</small><b>Transforming clinical EEG workflows</b><em>Design, Data engineering</em></span></a></li>
+            <li><a class="hbp-card" href="our-work.html#anonymous"><span class="hbp-img"><img src="assets/img/uc-triage.svg" alt="" width="96" height="72" decoding="async"></span><span class="hbp-txt"><small>Name withheld &middot; Voice triage</small><b>Voice AI that routes patient calls</b><em>Applied AI, Integrations</em></span></a></li>
+          </ul>
+          <div class="hbp-cta"><a class="btn btn--primary btn--sm" href="contact.html?stage=scale" data-ask-book>Book a discovery call <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="link" href="#your-stage" data-goto-pick="scale">See all 3</a></div>
+        </div>
+  <!-- hbproof:end -->
       </div>
     </div>
   </section>

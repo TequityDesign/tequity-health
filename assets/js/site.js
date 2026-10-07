@@ -971,54 +971,69 @@
     }, 2600);
   });
 
-  /* ---------- Hero option 2: the founder's stage picks the offer and the card on the photo ---------- */
+  /* ---------- Home hero: "What stage are you at?" in the visitor's own words, then proof beside it ---------- */
   var hb = $('[data-hb]');
   if (hb) (function () {
-    /* each stage's offer and card are already in the page, stacked in one place, so switching never moves the layout */
-    var tabs = $$('.hb-seg button', hb), panes = $$('.hb-offer[data-stage], .hb-card[data-stage]', hb), panel = $('.hb-offers', hb);
-    var keys = tabs.map(function (t) { return t.dataset.stage; }), cur = 0, timer = 0, touched = false, hold = false, paused = false, pauseBtn = $('[data-hb-pause]', hb);
-    function pick(i, user) {
-      cur = (i + keys.length) % keys.length;
-      var key = keys[cur];
-      tabs.forEach(function (t, j) { t.setAttribute('aria-selected', String(j === cur)); t.tabIndex = j === cur ? 0 : -1; });
-      panes.forEach(function (p) {
-        var on = p.dataset.stage === key;
-        p.classList.toggle('is-on', on);
-        if (on) p.removeAttribute('aria-hidden'); else p.setAttribute('aria-hidden', 'true');
-        if (p.tagName === 'A') p.tabIndex = on ? 0 : -1;
+    var form = $('[data-ask]', hb), input = $('#hb-ask-in', hb), msg = $('[data-ask-msg]', hb);
+    var chips = $$('.hb-chips button', hb), sets = $$('.hbp', hb), visual = $('[data-hb-visual]', hb);
+    var NAMES = { idea: 'Idea', seed: 'Seed', pmf: 'PMF', scale: 'Scale' };
+    /* plain-language clues for each stage; the strongest match wins */
+    var CLUES = {
+      idea: ['idea', 'concept', 'validat', 'prototype', 'pre-seed', 'preseed', 'no product', 'not built', 'starting', 'exploring', 'research', 'thinking', 'plan', 'wireframe', 'just an'],
+      seed: ['mvp', 'seed', 'launched', 'pilot', 'beta', 'early users', 'first users', 'first customer', 'feedback', 'live with', 'v1', 'first version', 'a few clinic', 'two clinic', 'handful'],
+      pmf: ['pmf', 'product market fit', 'product-market', 'traction', 'growing', 'growth', 'series a', 'revenue', 'demand', 'backlog', 'more priorities', 'not enough', 'capacity', 'roadmap', 'paying'],
+      scale: ['scale', 'scaling', 'series b', 'series c', 'enterprise', 'hundreds', 'thousands', 'million', 'nationwide', 'health system', 'hospitals', 'dedicated team', 'in-house', 'in house', 'own team', 'build-operate']
+    };
+    function guess(text) {
+      var s = ' ' + text.toLowerCase() + ' ', best = null, top = 0;
+      Object.keys(CLUES).forEach(function (k) {
+        var n = 0;
+        CLUES[k].forEach(function (c) { if (s.indexOf(c) > -1) n += c.length > 4 ? 2 : 1; });
+        if (n > top) { top = n; best = k; }
       });
-      if (panel && tabs[cur].id) panel.setAttribute('aria-labelledby', tabs[cur].id);
-      if (user) { touched = true; clearTimeout(timer); }
+      return best;
     }
-    /* reading the tile or the photo holds the rotation */
-    [$('.hb-stage', hb), $('.hb-visual', hb)].forEach(function (el) {
-      if (!el) return;
-      el.addEventListener('pointerenter', function () { hold = true; });
-      el.addEventListener('pointerleave', function () { hold = false; });
-      el.addEventListener('focusin', function () { hold = true; });
-      el.addEventListener('focusout', function () { hold = false; });
+    function show(k, typed) {
+      chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c.dataset.stage === k)); });
+      sets.forEach(function (s) {
+        var on = s.dataset.stage === (k || 'all');
+        s.hidden = !on;
+        if (on && !reduceMotion) { s.classList.remove('is-entering'); void s.offsetWidth; s.classList.add('is-entering'); }
+      });
+      if (visual) visual.classList.toggle('is-answered', !!k);
+      if (!k) return;
+      msg.textContent = (typed ? 'Sounds like the ' + NAMES[k] + ' stage. ' : '') + 'Here is what we built for founders at ' + NAMES[k] + '.';
+      $$('[data-ask-book]', hb).forEach(function (a) {
+        a.setAttribute('href', 'contact.html?stage=' + k + (typed ? '&note=' + encodeURIComponent(typed.slice(0, 300)) : ''));
+      });
+    }
+    if (form) form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var text = input.value.trim();
+      if (!text) { msg.textContent = 'Tell us in a few words, or pick the closest stage.'; input.focus(); return; }
+      var k = guess(text);
+      if (k) show(k, text);
+      else msg.textContent = 'Thanks. Which of these is closest? Pick one and we will show you the work.';
     });
-    tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () { pick(i, true); });
-      t.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowRight') { e.preventDefault(); pick(cur + 1, true); tabs[cur].focus(); }
-        if (e.key === 'ArrowLeft') { e.preventDefault(); pick(cur - 1, true); tabs[cur].focus(); }
+    chips.forEach(function (c) { c.addEventListener('click', function () { show(c.dataset.stage, input.value.trim()); }); });
+    /* "See all" opens the stage picker further down with the same stage chosen */
+    $$('[data-goto-pick]', hb).forEach(function (a) {
+      a.addEventListener('click', function () {
+        var o = $('.pk-opt[data-pick="' + a.dataset.gotoPick + '"]');
+        if (o && o.getAttribute('aria-pressed') !== 'true') o.click();
       });
     });
-    pick(0);
-    /* until someone chooses, the stages take turns */
+    /* the pause button rests the rotating headline word */
+    var pauseBtn = $('[data-hb-pause]', hb), paused = false;
     if (pauseBtn) {
       if (reduceMotion) pauseBtn.hidden = true;
       pauseBtn.addEventListener('click', function () {
         paused = !paused;
-        pauseBtn.setAttribute('aria-label', paused ? 'Play the rotating stages and headline' : 'Pause the rotating stages and headline');
+        pauseBtn.setAttribute('aria-label', paused ? 'Play the rotating headline' : 'Pause the rotating headline');
         hb.classList.toggle('is-paused', paused);
-        if (paused) clearTimeout(timer); else cycle();
       });
     }
-    var cycle = function () { if (touched || reduceMotion || paused) return; clearTimeout(timer); timer = setTimeout(function () { if (!hold) pick(cur + 1); cycle(); }, 4200); };
-    var photo = $('.hb-visual > img', hb), started = false;
-    var start = function () { if (started) return; started = true; hb.classList.add('is-photo'); cycle(); };
+    var photo = $('.hb-visual > img', hb), start = function () { hb.classList.add('is-photo'); };
     if (doc.classList.contains('is-loading')) document.addEventListener('th:handoff', start, { once: true });
     else if (!photo || photo.complete) requestAnimationFrame(start);
     else { photo.addEventListener('load', start); photo.addEventListener('error', start); setTimeout(start, 2000); }
@@ -1048,7 +1063,9 @@
 
   /* ---------- Contact: a stage chosen on the home page arrives pre-selected ---------- */
   (function () {
-    var st = new URLSearchParams(location.search).get('stage');
+    var q = new URLSearchParams(location.search), st = q.get('stage'), note = q.get('note');
+    var b = $('#f-building');
+    if (note && b && !b.value) b.value = note;
     if (!st) return;
     var r = $('#s-' + st.toLowerCase());
     if (r && r.name === 'stage') r.checked = true;

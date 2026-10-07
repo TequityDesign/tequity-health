@@ -271,6 +271,40 @@ def picker():
   </section>'''
 
 
+HERO_DEFAULT = ['stitch', 'lexi', 'elevare']   # shown before the visitor answers
+
+
+def hero_proof():
+    """The proof beside the hero question: three stories for each stage, and a default set."""
+    def mini(w):
+        who = E(w['client']) if w['client'] else 'Name withheld'
+        ext = w['href'].startswith('http')
+        rel = ' rel="noopener"' if ext else ''
+        return ('            <li><a class="hbp-card" href="%s"%s><span class="hbp-img"><img src="%s" alt="" width="96" height="72" decoding="async"></span>'
+                '<span class="hbp-txt"><small>%s &middot; %s</small><b>%s</b><em>%s</em></span></a></li>') % (
+            w['href'], rel, w['img'], who, E(w['area']), E(w['title']), E(', '.join(w['services'][:3])))
+    sets = []
+    by = {w['key']: w for w in WORK}
+    sets.append('''        <div class="hbp" data-stage="all">
+          <div class="hbp-h"><span class="mono">Proof of work</span><b>Twelve healthcare products, from first MVP to scale</b></div>
+          <ul class="hbp-list">
+%s
+          </ul>
+          <div class="hbp-cta"><a class="btn btn--primary btn--sm" href="contact.html" data-ask-book>Book a discovery call %s</a><a class="link" href="#your-stage">See all the work</a></div>
+        </div>''' % ('\n'.join(mini(by[k]) for k in HERO_DEFAULT), ARROW))
+    for k, name, sit, offer in STAGES:
+        ws = [w for w in WORK if k in w['stages']]
+        sets.append('''        <div class="hbp" data-stage="%s" hidden>
+          <div class="hbp-h"><span class="mono">%s &middot; %d %s</span><b>What we built for founders at %s</b></div>
+          <ul class="hbp-list">
+%s
+          </ul>
+          <div class="hbp-cta"><a class="btn btn--primary btn--sm" href="contact.html?stage=%s" data-ask-book>Book a discovery call %s</a><a class="link" href="#your-stage" data-goto-pick="%s">See all %d</a></div>
+        </div>''' % (k, name, len(ws), 'story' if len(ws) == 1 else 'stories', name,
+                     '\n'.join(mini(w) for w in ws[:3]), k, ARROW, k, len(ws)))
+    return '\n'.join(sets)
+
+
 def services(t):
     """Adds 'Delivered for' to each capability tile."""
     for key, names in SERVICES.items():
@@ -289,6 +323,7 @@ def put(t, name, body):
 if __name__ == '__main__':
     p = ROOT / 'index.html'
     t = p.read_text(encoding='utf-8')
+    t = put(t, 'hbproof', hero_proof())
     t = put(t, 'logos', logos())
     t = put(t, 'journey', journey())
     t = put(t, 'picker', picker())
